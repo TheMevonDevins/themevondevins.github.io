@@ -1106,3 +1106,154 @@ body:not(.space-theme) .hero {
     }
   }
 
+
+
+  
+  /* ====================== */
+/* SHRINKING MOBILE OVERLAY */
+/* ====================== */
+
+.video-character-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+  
+  /* Character Base Styles */
+  .video-character {
+    position: absolute;
+    right: -100px;
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .character-gif {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Mobile Overlay Mode */
+  @media (max-width: 768px) {
+    .video-character {
+      right: 20px; /* Pushes from right edge */
+      bottom: 20px; /* Pushes from bottom */
+      transform: none;
+      width: 120px; /* Smaller overlay size */
+    }
+  
+    .character-gif {
+      width: 100%; /* Fills container */
+      animation: float-mobile 3s ease-in-out infinite;
+    }
+  }
+  
+  /* Tiny Mobile Screens */
+  @media (max-width: 480px) {
+    .video-character {
+      right: 10px;
+      bottom: 10px;
+      width: 100px; /* Even smaller */
+    }
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  @keyframes float-mobile {
+    0%, 100% { transform: translateY(0) scale(0.95); }
+    50% { transform: translateY(-5px) scale(1); }
+  }
+  
+  /* Theme Styles */
+  :not(.space-theme) .character-gif {
+    filter: drop-shadow(0 5px 15px rgba(26, 111, 201, 0.5));
+  }
+  
+  .space-theme .character-gif {
+    filter: drop-shadow(0 0 15px rgba(255, 232, 31, 0.7));
+  }
+  
+  /* Video Player Z-Index Fix */
+  .video-player {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ====================== */
+/* DUAL GIF IMPLEMENTATION */
+/* ====================== */
+
+.video-character {
+    position: absolute;
+    right: -100px;
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  /* Desktop GIF Styles (Larger) */
+  .character-gif {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+    animation: float-desktop 3s ease-in-out infinite;
+  }
+  
+  /* Mobile Overlay Mode (Different GIF) */
+  @media (max-width: 768px) {
+    .video-character {
+      right: 20px;
+      bottom: 20px;
+      transform: none;
+      width: 120px;
+    }
+    
+    /* Mobile-specific GIF styling */
+    .character-gif {
+      width: 100%;
+      animation: float-mobile 2.5s ease-in-out infinite;
+      /* Different filter for mobile */
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* Different animation for mobile */
+    @keyframes float-mobile {
+      0%, 100% { transform: scale(0.95) translateY(0); }
+      50% { transform: scale(1) translateY(-8px); }
+    }
+  }
+  
+  /* Desktop Animations */
+  @keyframes float-desktop {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+  
+  /* Theme Adaptations - Different for each GIF */
+  :not(.space-theme) .character-gif {
+    filter: drop-shadow(0 5px 20px rgba(26, 111, 201, 0.6));
+  }
+  
+  .space-theme .character-gif {
+    filter: drop-shadow(0 0 25px rgba(255, 232, 31, 0.8));
+  }
+  
+  /* Mobile Theme Adjustments */
+  @media (max-width: 768px) {
+    :not(.space-theme) .character-gif {
+      filter: drop-shadow(0 3px 12px rgba(26, 111, 201, 0.5));
+    }
+    .space-theme .character-gif {
+      filter: drop-shadow(0 0 15px rgba(255, 232, 31, 0.6));
+    }
+  }
