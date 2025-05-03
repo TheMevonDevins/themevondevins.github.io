@@ -1,0 +1,408 @@
+/* About Page Specific Styles */
+
+/* Hero Section */
+.about-hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d4b8a, #1a6fc9);
+    text-align: center;
+    color: white;
+}
+
+.about-hero .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: waterRipple 3s infinite;
+}
+
+.about-hero .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Team Section */
+.team-section {
+    padding: 5rem 0;
+    background-color: #f5f9ff;
+}
+
+.team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.member-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* This makes it circular */
+    overflow: hidden; /* Important for the peek effect */
+    position: relative;
+    border: 5px solid var(--light-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-info h3 {
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.member-title {
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.member-bio {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.water-fact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.water-fact i {
+    font-size: 1.2rem;
+}
+
+/* Water Animation */
+.water-animation {
+    position: relative;
+}
+
+.water-drops {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.drop {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: dropFall linear infinite;
+    animation-play-state: running !important; /* Force animation to always run */
+
+}
+
+.drop:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    left: 20%;
+    top: 10%;
+    animation-duration: 2s;
+}
+
+.drop:nth-child(2) {
+    width: 6px;
+    height: 6px;
+    left: 60%;
+    top: 20%;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+}
+
+.drop:nth-child(3) {
+    width: 4px;
+    height: 4px;
+    left: 40%;
+    top: 15%;
+    animation-duration: 3s;
+    animation-delay: 1s;
+}
+
+@keyframes dropFall {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+}
+
+/* Water Facts Section */
+.water-facts {
+    padding: 4rem 0;
+    background: var(--water-gradient);
+    color: white;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.fact-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: scale(1.05);
+}
+
+.fact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.fact-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fact-card p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-hero .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .team-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .member-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .facts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Jennifer's Peek Animation - Coming from bottom */
+.peek-image {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-image: url('img/usa.png');
+    background-size: cover;
+    bottom: -15px; /* Position at bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(20px); /* Center and hide initially */
+    z-index: 10;
+    border: 3px solid var(--light-blue);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+#jennifer-card:hover .peek-image {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Center and show */
+    animation: peekBounce 2s infinite;
+}
+
+@keyframes peekBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px); /* Bounce up slightly */
+    }
+}
+
+/* Spider-Man Swing Animation - Updated */
+.spiderman-swing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 15; /* Behind water drops but above card */
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.spiderman {
+    position: absolute;
+    width: 50px; /* Smaller size */
+    height: auto;
+    top: 10px; /* Higher starting position */
+    left: -60px; /* Start further left */
+    transform-origin: top left;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+#roy-card {
+    position: relative; /* Needed for absolute positioning */
+    overflow: visible; /* Allow Spider-Man to swing outside */
+}
+
+#roy-card:hover .spiderman-swing {
+    opacity: 1;
+}
+
+#roy-card:hover .spiderman {
+    animation: swingAcross 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; /* Faster animation */
+}
+
+@keyframes swingAcross {
+    0% {
+        transform: rotate(-30deg) translateX(-50px);
+        left: -50px;
+    }
+    30% {
+        transform: rotate(0deg) translateX(0);
+    }
+    70% {
+        transform: rotate(0deg) translateX(0);
+    }
+    100% {
+        transform: rotate(30deg) translateX(50px);
+        left: calc(100% + 10px); /* Swing completely off card */
+    }
+}
+
+
+
+/* Adrian's Hacking Effect Styles */
+#adrian-card {
+    position: relative;
+    /* All other card styles are inherited from .team-member */
+}
+
+/* Terminal overlay effect */
+#adrian-card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            180deg,
+            rgba(0, 255, 0, 0.05),
+            rgba(0, 255, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    z-index: 1;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+#adrian-card:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Text corruption effects */
+#adrian-card .hack-target {
+    position: relative;
+    z-index: 2; /* Ensure text appears above overlay */
+}
+
+#adrian-card .hack-target::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #0f0;
+    background: rgba(0, 0, 0, 0.8);
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.5s;
+    border-radius: 3px;
+}
+
+#adrian-card:hover .hack-target::before {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Water drop effects */
+#adrian-card:hover .water-drops .drop {
+    background: #0f0;
+    box-shadow: 0 0 8px #0f0;
+}
+
+/* Animation keyframes */
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+@keyframes binary-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 22%, 24%, 55% { opacity: 0.3; }
+}

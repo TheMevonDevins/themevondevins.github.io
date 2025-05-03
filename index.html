@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defend Stockton's Water – Act Now!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="wave-overlay">
+            <ul class="nav-links">
+                <li><a href="index.html" class="wave-link">Homepage</a></li>
+                <li><a href="crisis.html" class="wave-link">The Crisis</a></li>
+                <li><a href="solutions.html" class="wave-link">Solutions</a></li>
+                <li><a href="interactive-tools.html" class="wave-link">Interactive Tools</a></li>
+                <li><a href="take-action.html" class="wave-link">Take Action</a></li>
+                <li><a href="resources.html" class="wave-link">Resources</a></li>
+                <li><a href="about.html" class="wave-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="water-overlay"></div>
+        <div class="hero-content">
+            <h1>Defend Stockton's Water – Act Now!</h1>
+            <p>Join the movement to protect our most precious resource</p>
+            <a href="#main-video" class="btn ripple">Watch the Crisis Unfold</a>
+        </div>
+        <div class="water-wave"></div>
+    </header>
+
+    <!-- Main Video Section -->
+    <section id="main-video" class="main-video-section">
+        <div class="container">
+            <h2 class="section-title">[Video Title]</h2>
+            <p class="section-subtitle">[Video Description]</p>
+            <div class="video-player">
+                <iframe width="560" height="315" src="link" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                <div class="video-water-effect"></div>
+            </div>
+            <div class="video-description">
+                <p>[Longer Description]</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Quiz Section -->
+<section id="quiz" class="quiz-section">
+    <div class="container">
+        <h2 class="section-title">Water Conservation Quiz</h2>
+        <p class="section-subtitle">Answer these questions to get personalized water-saving tips</p>
+        
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="progress-bar"></div>
+                <span class="progress-text">Question 1 of 6</span>
+            </div>
+
+            <div class="quiz-questions">
+                <!-- Question 1 -->
+                <div class="quiz-question active" data-question="1">
+                    <h3>1. How long are your typical showers?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="5">Less than 5 minutes</button>
+                        <button class="quiz-option" data-value="10">5-10 minutes</button>
+                        <button class="quiz-option" data-value="15">More than 10 minutes</button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question" data-question="2">
+                    <h3>2. How often do you run your dishwasher/washing machine?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="full">Only when full</button>
+                        <button class="quiz-option" data-value="medium">When about 3/4 full</button>
+                        <button class="quiz-option" data-value="half">When about half full</button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question" data-question="3">
+                    <h3>3. What type of landscaping do you have?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="drought">Drought-resistant plants</button>
+                        <button class="quiz-option" data-value="mixed">Mix of plants and lawn</button>
+                        <button class="quiz-option" data-value="lawn">Mostly lawn</button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question" data-question="4">
+                    <h3>4. How do you typically water your plants?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="drip">Drip irrigation system</button>
+                        <button class="quiz-option" data-value="sprinkler">Sprinkler system</button>
+                        <button class="quiz-option" data-value="hose">Watering by hose</button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="quiz-question" data-question="5">
+                    <h3>5. Do you have any water-saving fixtures installed?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="all">Low-flow showerheads and faucets</button>
+                        <button class="quiz-option" data-value="some">Some water-saving fixtures</button>
+                        <button class="quiz-option" data-value="none">No special fixtures</button>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="quiz-question" data-question="6">
+                    <h3>6. How often do you check for leaks?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-value="monthly">Monthly</button>
+                        <button class="quiz-option" data-value="yearly">Once a year</button>
+                        <button class="quiz-option" data-value="never">Only when I notice a problem</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="quiz-navigation">
+                <button class="btn quiz-prev" disabled>Previous</button>
+                <button class="btn quiz-next">Next</button>
+                <button class="btn submit-quiz" style="display: none;">Get My Results</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="quiz-results" style="display: none;">
+                <h3>Your Personalized Water Conservation Plan</h3>
+                <div class="result-category">
+                    <h4>Shower Habits</h4>
+                    <p class="shower-tips">Based on your shower length of <span class="shower-time">10 minutes</span>, you could save <span class="water-saved">15 gallons</span> per shower by reducing your time by 5 minutes.</p>
+                </div>
+                <div class="result-category">
+                    <h4>Appliance Use</h4>
+                    <p class="appliance-tips">Running full loads can save up to <span class="appliance-saved">20 gallons</span> per wash.</p>
+                </div>
+                <div class="result-category">
+                    <h4>Outdoor Watering</h4>
+                    <p class="outdoor-tips">Consider switching to drip irrigation which uses <span class="irrigation-saved">50% less water</span> than sprinklers.</p>
+                </div>
+                <div class="result-category">
+                    <h4>Home Improvements</h4>
+                    <p class="home-tips">Installing low-flow fixtures could reduce your water use by <span class="fixture-saved">30%</span>.</p>
+                </div>
+                <div class="result-actions">
+                    <h4>Ready to Take Action?</h4>
+                    <button class="btn action-plan">Get My Action Plan</button>
+                    <button class="btn retake-quiz">Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Drought Meter -->
+    <section class="drought-meter">
+        <div class="container">
+            <h2 class="section-title">Current Drought Severity</h2>
+            <div class="meter-container">
+                <div class="meter-scale">
+                    <div class="meter-level"></div>
+                </div>
+                <div class="meter-labels">
+                    <span>Abnormally Dry</span>
+                    <span>Moderate Drought</span>
+                    <span>Severe Drought</span>
+                    <span>Extreme Drought</span>
+                    <span>Exceptional Drought</span>
+                </div>
+            </div>
+            <p>Data sourced from U.S. Drought Monitor</p>
+        </div>
+    </section>
+
+    <!-- Logo Button -->
+    <div class="logo-button-container">
+        <a href="https://www.instagram.com/themevondevins/" class="logo-button">
+            <img src="img/watergoober.png" alt="Organization Logo" class="logo-img">
+        </a>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-switcher" class="btn">
+            <i class="fas fa-jedi"></i> Switch to Space Theme
+        </button>
+    </div>
+
+    <!-- Star Background Elements -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <!-- Audio Element for Background Music -->
+    <audio id="space-music" loop>
+        <source src="audio/star.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

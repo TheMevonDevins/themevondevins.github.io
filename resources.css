@@ -1,0 +1,163 @@
+/* Resources Page Specific Styles */
+
+/* Hero Section */
+.resources-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a6fc9, #4fa3e3);
+    text-align: center;
+    color: white;
+}
+
+.resources-hero .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.resources-hero .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Container */
+.resources-container {
+    padding: 4rem 2rem;
+    background-color: #f5f9ff;
+}
+
+/* Section Styles */
+.resource-section {
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.section-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: var(--primary-blue);
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--dark-blue);
+    margin: 0;
+}
+
+/* Resource Cards */
+.resource-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: var(--water-gradient);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content p {
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Resource Button */
+.resource-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+}
+
+.resource-btn:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.resource-btn i {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Section Specific Styles */
+.educator-section .card-header {
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+.funding-section .card-header {
+    background: linear-gradient(135deg, #FF9800, #FFC107);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resources-hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .resources-hero .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .resource-cards {
+        grid-template-columns: 1fr;
+    }
+}

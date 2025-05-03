@@ -1,0 +1,1147 @@
+/* Tools Page Specific Styles */
+.tools-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a6fc9, #4fa3e3);
+    text-align: center;
+}
+
+.tools-hero .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: waterRipple 3s infinite;
+}
+
+.tools-hero .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tools-container {
+    padding: 4rem 0;
+    background-color: #f5f9ff;
+}
+
+.tool-section {
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--water-gradient);
+    border-radius: 3px;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Leak Detector Styles */
+.leak-detector-tool {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.leak-test-step {
+    display: none;
+    text-align: center;
+}
+
+.leak-test-step.active {
+    display: block;
+}
+
+.leak-test-step h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.leak-test-step p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.leak-test-image {
+    margin: 1.5rem 0;
+}
+
+.leak-test-image img {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leak-test-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.leak-test-options .btn {
+    min-width: 250px;
+}
+
+.leak-results {
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: var(--light-blue);
+}
+
+.result-leak h3, .result-no-leak h3 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.result-leak h3 {
+    color: #e74c3c;
+}
+
+.result-no-leak h3 {
+    color: #27ae60;
+}
+
+.leak-results ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.leak-results li {
+    margin-bottom: 0.5rem;
+}
+
+.leak-solution, .leak-prevention {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.leak-solution h4, .leak-prevention h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+/* Savings Calculator Styles */
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calculator-inputs {
+    padding-right: 1rem;
+    border-right: 1px dashed #ccc;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.input-group input[type="number"]:focus {
+    border-color: var(--secondary-blue);
+    outline: none;
+}
+
+.estimate-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.checkbox-group {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Added gap for consistent spacing */
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0; /* Remove default margins */
+    width: 18px; /* Fixed width */
+    height: 18px; /* Fixed height */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.checkbox-group label {
+    margin: 0; /* Remove default margins */
+    font-weight: normal; /* Adjust if needed */
+    color: #333; /* Match your design */
+    line-height: 1.4; /* Better text alignment */
+    cursor: pointer; /* Show it's clickable */
+    user-select: none; /* Prevent text selection */
+}
+
+
+.checkbox-group input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: var(--primary-blue);
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.calculate-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.calculator-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-card {
+    background: var(--light-blue);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.result-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 0;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed #ccc;
+}
+
+.result-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.result-value {
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.savings-visualization {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.water-drops-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 200px;
+    margin: 1rem 0;
+}
+
+.water-drop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drop {
+    width: 100px;
+    background: var(--water-gradient);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transition: height 1s ease;
+}
+
+#current-drop {
+    height: 150px;
+    background: var(--primary-blue);
+}
+
+#potential-drop {
+    height: 150px;
+    background: var(--secondary-blue);
+}
+
+.comparison-text {
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* Water Quality Styles */
+.water-quality-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.quality-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.quality-tab {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.quality-tab.active {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.quality-tab:hover:not(.active) {
+    background: #f5f5f5;
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.contaminant-chart, .pie-chart-container, .comparison-chart {
+    height: 300px;
+    margin-bottom: 2rem;
+}
+
+.contaminant-table {
+    overflow-x: auto;
+}
+
+.contaminant-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contaminant-table th, .contaminant-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.contaminant-table th {
+    background: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+.contaminant-table tr:hover {
+    background: #f5f5f5;
+}
+
+.source-map img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.source-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.source-list ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.source-list li {
+    margin-bottom: 0.8rem;
+}
+
+.comparison-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: var(--light-blue);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-card h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.stat-comparison {
+    font-size: 0.9rem;
+}
+
+.better {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.worse {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-inputs {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .source-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .pie-chart-container {
+        height: 250px;
+        max-width: 300px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .comparison-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .tools-hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tools-hero .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .leak-test-options {
+        flex-direction: column;
+    }
+    
+    .leak-test-options .btn {
+        width: 100%;
+    }
+    
+    .quality-tabs {
+        flex-direction: column;
+    }
+    
+    .quality-tab {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+    
+    .quality-tab.active {
+        border-bottom: none;
+        border-left: 3px solid var(--primary-blue);
+    }
+}
+
+/* Tool Navigation */
+.tool-nav-section {
+    padding: 3rem 0;
+    background-color: var(--light-blue);
+}
+
+.tool-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.tool-nav-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark-blue);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.tool-nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tool-nav-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.tool-nav-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Water Footprint Calculator */
+.footprint-calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footprint-form {
+    padding-right: 1rem;
+    border-right: 1px dashed #ccc;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.range-slider {
+    margin-top: 0.5rem;
+}
+
+.range-slider input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.footprint-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.footprint-visual {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.footprint-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--water-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 1.5rem;
+}
+
+.footprint-circle span {
+    font-size: 2rem;
+}
+
+.footprint-circle small {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.footprint-comparison {
+    flex-grow: 1;
+}
+
+.breakdown-bar {
+    margin-bottom: 1rem;
+}
+
+.bar-container {
+    height: 25px;
+    background: #eee;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 0.3rem;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: var(--primary-blue);
+    transition: width 1s ease;
+}
+
+.bar-value {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: white;
+}
+
+.footprint-tips ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.footprint-tips li {
+    margin-bottom: 0.5rem;
+}
+
+/* Game Styles */
+.game-container {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-intro {
+    text-align: center;
+}
+
+.game-intro h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.game-intro p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.game-screen {
+    display: none;
+}
+
+.game-header {
+    margin-bottom: 1.5rem;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.game-progress {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-blue);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.game-question {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+    line-height: 1.4;
+}
+
+.game-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.game-option {
+    padding: 1rem;
+    background: white;
+    border: 2px solid var(--secondary-blue);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.game-option:hover {
+    background: var(--light-blue);
+}
+
+.game-option.selected {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Feedback Styles */
+.feedback-content {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.feedback-content {
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.feedback-content.correct {
+    background: rgba(39, 174, 96, 0.1);
+    border-left: 4px solid #27ae60;
+}
+
+.feedback-content.incorrect {
+    background: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid #e74c3c;
+}
+
+.feedback-icon {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.feedback-icon.correct {
+    color: #27ae60;
+}
+
+.feedback-icon.incorrect {
+    color: #e74c3c;
+}
+
+.feedback-text {
+    flex: 1;
+}
+
+.feedback-text p {
+    margin-bottom: 0.5rem;
+}
+
+.feedback-text p:last-child {
+    margin-bottom: 0;
+}
+
+.game-results {
+    text-align: center;
+    display: none;
+}
+
+.result-score {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.result-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--light-blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin: 1rem 0;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.result-badge i {
+    margin-right: 0.5rem;
+    color: var(--primary-blue);
+}
+
+.result-tips {
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.result-tips h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.result-tips ul {
+    padding-left: 1.5rem;
+}
+
+.result-tips li {
+    margin-bottom: 0.5rem;
+}
+
+/* Local Water Map */
+.map-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#water-map {
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.map-controls {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.map-legend {
+    margin-bottom: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+.map-layers label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.layer-option input {
+    margin-right: 0.5rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.feature-card h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.feature-locate {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Call to Action */
+.tool-cta {
+    text-align: center;
+    padding: 3rem 0;
+    background: var(--water-gradient);
+    color: white;
+    margin-top: 3rem;
+}
+
+.tool-cta h2 {
+    margin-bottom: 1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    background: white;
+    color: var(--primary-blue);
+}
+
+.cta-buttons .btn:hover {
+    background: var(--light-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .footprint-calculator,
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footprint-form {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .map-controls {
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .tool-nav-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Map Container - Added padding and max-width */
+.map-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#water-map {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+/* Feature Grid - Added padding */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .tools-container {
+        padding: 3rem 1.5rem;
+    }
+    
+    .tool-section {
+        padding: 1.5rem;
+    }
+    
+    .calculator-container,
+    .water-quality-container {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    
+    .map-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .tool-nav-section {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .tools-container {
+        padding: 2rem 1rem;
+    }
+    
+    .tool-section {
+        padding: 1rem;
+    }
+    
+    .tools-hero .hero-content h1 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+    }
+    
+    .tools-hero .hero-content p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .tool-nav-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+}
+
+/* Leaflet Map Styles - Added to ensure proper display */
+.water-marker div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.water-marker.source div {
+    background-color: #1a6fc9 !important;
+}
+
+.water-marker.plant div {
+    background-color: #27ae60 !important;
+}
+
+.water-marker.river div {
+    background-color: #4fa3e3 !important;
+}
+
+.water-marker.conservation div {
+    background-color: #e74c3c !important;
+}
+
+.leaflet-popup-content {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    font-size: 20px;
+    color: #555;
+}

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add these in your <head> -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be a Water Hero – Interactive Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="wave-overlay">
+            <ul class="nav-links">
+                <li><a href="index.html" class="wave-link">Homepage</a></li>
+                <li><a href="crisis.html" class="wave-link">The Crisis</a></li>
+                <li><a href="solutions.html" class="wave-link">Solutions</a></li>
+                <li><a href="interactive-tools.html" class="wave-link">Interactive Tools</a></li>
+                <li><a href="take-action.html" class="wave-link">Take Action</a></li>
+                <li><a href="resources.html" class="wave-link">Resources</a></li>
+                <li><a href="about.html" class="wave-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="tools-hero">
+        <div class="water-overlay"></div>
+        <div class="hero-content">
+            <h1>Be a Water Hero</h1>
+            <p>Use these interactive tools to discover how you can save water and money</p>
+        </div>
+        <div class="water-wave"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tools-container">
+           <!-- Tool Navigation -->
+           <section class="tool-nav-section">
+            <h2 class="section-title">Explore Our Tools</h2>
+            <div class="tool-nav-grid">
+                <a href="#leak-detector" class="tool-nav-card">
+                    <i class="fas fa-toilet"></i>
+                    <h3>Leak Detector</h3>
+                    <p>Test for hidden water leaks</p>
+                </a>
+                <a href="#savings-calculator" class="tool-nav-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Savings Calculator</h3>
+                    <p>See potential water & money savings</p>
+                </a>
+                <a href="#water-quality" class="tool-nav-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Water Quality</h3>
+                    <p>View local water reports</p>
+                </a>
+                <a href="#conservation-game" class="tool-nav-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Conservation Game</h3>
+                    <p>Test your water knowledge</p>
+                </a>
+                <a href="#local-map" class="tool-nav-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Local Water Map</h3>
+                    <p>Explore water resources</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Leak Detector Tool -->
+        <section class="tool-section" id="leak-detector">
+            <div class="section-header">
+                <h2>Is Your Toilet Secretly Wasting Water?</h2>
+                <p>Take this quick test to find out if you have a leaky toilet</p>
+            </div>
+            
+            <div class="leak-detector-tool">
+                <div class="leak-test-container">
+                    <div class="leak-test-step active" data-step="1">
+                        <h3>Step 1: Prepare for the Test</h3>
+                        <p>Remove the toilet tank lid and place it somewhere safe.</p>
+                        <div class="leak-test-image">
+                            <img src="img/toilet1.webp" alt="Toilet tank with lid removed">
+                        </div>
+                        <button class="btn next-step">Next</button>
+                    </div>
+                    
+                    <div class="leak-test-step" data-step="2">
+                        <h3>Step 2: Add Food Coloring</h3>
+                        <p>Add 5-10 drops of food coloring to the water in the tank. Don't flush!</p>
+                        <div class="leak-test-image">
+                            <img src="img/toilet2.webp" alt="Adding food coloring to toilet tank">
+                        </div>
+                        <button class="btn prev-step">Back</button>
+                        <button class="btn next-step">Next</button>
+                    </div>
+                    
+                    <div class="leak-test-step" data-step="3">
+                        <h3>Step 3: Wait 15-30 Minutes</h3>
+                        <p>Leave the toilet undisturbed for at least 15 minutes. Don't flush during this time!</p>
+                        <div class="leak-test-image">
+                            <img src="img/15.jpg" alt="Clock showing 15 minutes">
+                        </div>
+                        <button class="btn prev-step">Back</button>
+                        <button class="btn next-step">Next</button>
+                    </div>
+                    
+                    <div class="leak-test-step" data-step="4">
+                        <h3>Step 4: Check the Bowl</h3>
+                        <p>After waiting, look in the toilet bowl. Do you see colored water?</p>
+                        <div class="leak-test-options">
+                            <button class="btn leak-option" data-result="leak">Yes, colored water in bowl</button>
+                            <button class="btn leak-option" data-result="no-leak">No, bowl water is clear</button>
+                        </div>
+                        <button class="btn prev-step">Back</button>
+                    </div>
+                </div>
+                
+                <div class="leak-results" style="display: none;">
+                    <div class="result-leak">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Leak Detected!</h3>
+                        <p>Your toilet is leaking water from the tank into the bowl. This silent leak could be wasting:</p>
+                        <ul>
+                            <li><strong>200+ gallons per day</strong> (small leak)</li>
+                            <li><strong>1,000+ gallons per day</strong> (large leak)</li>
+                        </ul>
+                        <p>That's <strong>$50-$250</strong> on your annual water bill!</p>
+                        <div class="leak-solution">
+                            <h4>What to do:</h4>
+                            <p>1. Check the flapper valve - it may need cleaning or replacement ($5-$10 part)</p>
+                            <p>2. Adjust the fill valve if water level is too high</p>
+                            <p>3. If unsure, contact a plumber for repair</p>
+                        </div>
+                        <button class="btn retest-leak">Test Another Toilet</button>
+                    </div>
+                    
+                    <div class="result-no-leak" style="display: none;">
+                        <h3><i class="fas fa-check-circle"></i> No Leak Detected</h3>
+                        <p>Your toilet isn't leaking right now. Great job maintaining your fixtures!</p>
+                        <p>Remember to test again every 6 months, as leaks can develop over time.</p>
+                        <div class="leak-prevention">
+                            <h4>Prevention Tips:</h4>
+                            <p>• Replace toilet flappers every 3-5 years</p>
+                            <p>• Listen for running water sounds</p>
+                            <p>• Check for tank condensation or small drips</p>
+                        </div>
+                        <button class="btn retest-leak">Test Another Toilet</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Savings Calculator -->
+        <section class="tool-section" id="savings-calculator">
+            <div class="section-header">
+                <h2>Water & Money Savings Calculator</h2>
+                <p>See how much you could save by making simple changes</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="household-size">Household Size:</label>
+                        <input type="number" id="household-size" min="1" max="10" value="3">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="current-usage">Current Water Usage (gallons/month):</label>
+                        <input type="number" id="current-usage" min="100" value="4000">
+                        <button class="btn estimate-btn" id="estimate-usage">Estimate My Usage</button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Water Saving Measures:</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="low-flow-shower" checked>
+                            <label for="low-flow-shower">Install low-flow showerheads</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="fix-leaks" checked>
+                            <label for="fix-leaks">Fix all leaks</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="efficient-appliances" checked>
+                            <label for="efficient-appliances">Use efficient appliances</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="drought-landscaping" checked>
+                            <label for="drought-landscaping">Convert to drought-resistant landscaping</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn calculate-btn" id="calculate-savings">Calculate My Savings</button>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Potential Savings</h3>
+                        <div class="result-item">
+                            <span class="result-label">Water Saved:</span>
+                            <span class="result-value" id="water-saved">0 gallons/month</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Money Saved:</span>
+                            <span class="result-value" id="money-saved">$0/month</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Annual Savings:</span>
+                            <span class="result-value" id="annual-savings">$0/year</span>
+                        </div>
+                    </div>
+                    
+                    <div class="savings-visualization">
+                        <h4>Your Potential Impact:</h4>
+                        <div class="water-drops-container">
+                            <div class="water-drop current-usage">
+                                <span>Current</span>
+                                <div class="drop" id="current-drop"></div>
+                            </div>
+                            <div class="water-drop potential-usage">
+                                <span>Potential</span>
+                                <div class="drop" id="potential-drop"></div>
+                            </div>
+                        </div>
+                        <div class="comparison-text" id="comparison-text">
+                            Make selections to see your potential savings
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Water Quality Data -->
+        <section class="tool-section" id="water-quality">
+            <div class="section-header">
+                <h2>Stockton's Water Quality Reports</h2>
+                <p>View the latest data on our local water supply</p>
+            </div>
+            
+            <div class="water-quality-container">
+                <div class="quality-tabs">
+                    <button class="quality-tab active" data-tab="contaminants">Contaminants</button>
+                    <button class="quality-tab" data-tab="sources">Water Sources</button>
+                    <button class="quality-tab" data-tab="comparison">Regional Comparison</button>
+                </div>
+                
+                <div class="quality-content">
+                    <div class="tab-content active" data-tab="contaminants">
+                        <h3>Recent Contaminant Levels</h3>
+                        <div class="contaminant-chart">
+                            <canvas id="contaminantChart"></canvas>
+                        </div>
+                        <div class="contaminant-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Contaminant</th>
+                                        <th>Level Detected</th>
+                                        <th>EPA Limit</th>
+                                        <th>Potential Effects</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Arsenic</td>
+                                        <td>3 ppb</td>
+                                        <td>10 ppb</td>
+                                        <td>Skin damage, circulatory problems</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lead</td>
+                                        <td>1.2 ppb</td>
+                                        <td>15 ppb</td>
+                                        <td>Developmental issues in children</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nitrates</td>
+                                        <td>4.5 ppm</td>
+                                        <td>10 ppm</td>
+                                        <td>Blue baby syndrome</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Trihalomethanes</td>
+                                        <td>35 ppb</td>
+                                        <td>80 ppb</td>
+                                        <td>Increased cancer risk</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" data-tab="sources">
+                        <h3>Water Sources for Stockton</h3>
+                        <div class="source-map">
+                            <img src="img/stockton-water-sources.png" alt="Map of Stockton water sources">
+                        </div>
+                        <div class="source-breakdown">
+                            <div class="pie-chart-container">
+                                <canvas id="sourceChart"></canvas>
+                            </div>
+                            <div class="source-list">
+                                <h4>Primary Sources:</h4>
+                                <ul>
+                                    <li><strong>Delta Water (60%)</strong> - From Sacramento-San Joaquin Delta</li>
+                                    <li><strong>Groundwater (30%)</strong> - Local wells and aquifers</li>
+                                    <li><strong>Surface Water (10%)</strong> - Local rivers and reservoirs</li>
+                                </ul>
+                                <p>Note: Percentages vary seasonally based on availability and drought conditions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" data-tab="comparison">
+                        <h3>Stockton vs. California Averages</h3>
+                        <div class="comparison-chart">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                        <div class="comparison-stats">
+                            <div class="stat-card">
+                                <h4>Water Quality Index</h4>
+                                <div class="stat-value">78/100</div>
+                                <div class="stat-comparison">
+                                    <span class="better">+5</span> better than state average
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Water Cost per Gallon</h4>
+                                <div class="stat-value">$0.003</div>
+                                <div class="stat-comparison">
+                                    <span class="worse">+0.0005</span> higher than state average
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Daily Usage per Capita</h4>
+                                <div class="stat-value">85 gal</div>
+                                <div class="stat-comparison">
+                                    <span class="better">-10</span> better than state average
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- New Tool 2: Water Conservation Game -->
+        <section class="tool-section" id="conservation-game">
+            <div class="section-header">
+                <h2>Water Conservation Game</h2>
+                <p>Test your knowledge and learn water-saving tips</p>
+            </div>
+            
+            <div class="game-container">
+                <div class="game-intro" id="game-intro">
+                    <h3>How to Play</h3>
+                    <p>Answer 5 questions about water conservation. For each correct answer, you'll save virtual water!</p>
+                    <button class="btn" id="start-game">Start Game</button>
+                </div>
+                
+                <div class="game-screen" style="display: none;" id="game-screen">
+                    <div class="game-header">
+                        <div class="game-stats">
+                            <span>Question <span id="current-question">1</span>/5</span>
+                            <span>Water Saved: <span id="water-saved">0</span> gallons</span>
+                        </div>
+                        <div class="game-progress">
+                            <div class="progress-fill" id="game-progress"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-question" id="game-question">
+                        <!-- Questions will be inserted here by JS -->
+                    </div>
+                    
+                    <div class="game-options" id="game-options">
+                        <!-- Options will be inserted here by JS -->
+                    </div>
+                    
+                    <div class="game-feedback" style="display: none;" id="game-feedback">
+                        <div class="feedback-content" id="feedback-content"></div>
+                        <button class="btn" id="next-question">Next Question</button>
+                    </div>
+                </div>
+                
+                <div class="game-results" style="display: none;" id="game-results">
+                    <h3>Game Complete!</h3>
+                    <div class="result-score">
+                        You saved <span id="final-water">0</span> gallons of water!
+                    </div>
+                    <div class="result-badge" id="result-badge">
+                        <i class="fas fa-tint"></i>
+                        <span>Water Saver</span>
+                    </div>
+                    <div class="result-tips" id="result-tips">
+                        <!-- Tips will be inserted here by JS -->
+                    </div>
+                    <button class="btn" id="play-again">Play Again</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Tool 3: Local Water Map -->
+        <section class="tool-section" id="local-map">
+            <div class="section-header">
+                <h2>Stockton Water Resources Map</h2>
+                <p>Explore local water sources, treatment plants, and conservation areas</p>
+            </div>
+            
+            <div class="map-container">
+                <div id="water-map"></div>
+                <div class="map-controls">
+                    <div class="map-legend">
+                        <h4>Map Legend:</h4>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #1a6fc9;"></span>
+                            <span>Rivers & Canals</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #4fa3e3;"></span>
+                            <span>Reservoirs</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #27ae60;"></span>
+                            <span>Treatment Plants</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #e74c3c;"></span>
+                            <span>Conservation Areas</span>
+                        </div>
+                    </div>
+                    <div class="map-layers">
+                        <h4>Map Layers:</h4>
+                        <label class="layer-option">
+                            <input type="checkbox" id="layer-rivers" checked> Rivers
+                        </label>
+                        <label class="layer-option">
+                            <input type="checkbox" id="layer-reservoirs" checked> Reservoirs
+                        </label>
+                        <label class="layer-option">
+                            <input type="checkbox" id="layer-plants" checked> Treatment Plants
+                        </label>
+                        <label class="layer-option">
+                            <input type="checkbox" id="layer-conservation" checked> Conservation Areas
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-features">
+                <br>
+                <center><h3>Key Water Features in Stockton</h3></center>
+                <br>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Stockton Delta Water Supply</h4>
+                        <p>Source of drinking water for the region</p>
+                        <button class="btn feature-locate" data-location="[37.9575, -121.3409]">View on Map</button>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Stockton Regional Wastewater Facility</h4>
+                        <p>Treats 30 million gallons of wastewater daily</p>
+                        <button class="btn feature-locate" data-location="[37.9761, -121.3008]">View on Map</button>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Mokelumne River</h4>
+                        <p>Critical water source and wildlife habitat</p>
+                        <button class="btn feature-locate" data-location="[38.0225, -121.3167]">View on Map</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Logo Button -->
+    <div class="logo-button-container">
+        <a href="https://www.instagram.com/themevondevins/" class="logo-button">
+            <img src="img/watergoober.png" alt="Organization Logo" class="logo-img">
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="tools.js"></script>
+</body>
+</html>

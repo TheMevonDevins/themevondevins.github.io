@@ -1,0 +1,495 @@
+/* Take Action Page Specific Styles */
+
+/* Hero Section */
+.action-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a6fc9, #4fa3e3);
+    text-align: center;
+}
+
+.action-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: waterRipple 3s infinite;
+}
+
+.action-hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Action Sections */
+.action-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.action-section:nth-child(odd) {
+    background-color: #f5f9ff;
+}
+
+.action-section:nth-child(even) {
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--water-gradient);
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Action Cards */
+.action-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.action-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 1.5rem;
+    background: var(--water-gradient);
+    color: white;
+    text-align: center;
+}
+
+.card-header img {
+    max-height: 60px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.impact-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.stat i {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+
+.card-footer {
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+/* Volunteer Events */
+.volunteer-events {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.event-card {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-date {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.event-date .month {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.event-date .day {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.event-details {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.event-details h3 {
+    margin-top: 0;
+    color: var(--dark-blue);
+}
+
+.event-location {
+    color: #666;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-location i {
+    color: var(--primary-blue);
+}
+
+.event-desc {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.more-events {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Advocate Tabs */
+.advocate-tabs {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.tab-content {
+    padding: 2rem;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.send-email {
+    align-self: flex-end;
+}
+
+/* Tweet Options */
+.tweet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tweet-option {
+    background: #f5f9ff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #e1e8ed;
+}
+
+.tweet-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border-left: 4px solid #1DA1F2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.btn-tweet {
+    background: #1DA1F2;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-tweet:hover {
+    background: #1991db;
+}
+
+/* Call Script */
+.call-script {
+    line-height: 1.6;
+}
+
+.script-example {
+    background: #f5f9ff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.contact-numbers {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.contact-numbers h4 {
+    margin-top: 0;
+    color: var(--dark-blue);
+}
+
+/* Outlined Button */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-outline:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .action-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .action-hero p {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+    
+    .event-card {
+        flex-direction: column;
+    }
+    
+    .event-date {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5rem;
+    }
+    
+    .event-date .month,
+    .event-date .day {
+        font-size: 1.2rem;
+    }
+}
+
+/* Instagram & TikTok Styles */
+.social-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.social-post {
+    background: #f5f9ff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.social-post h4 {
+    margin-top: 0;
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+}
+
+.post-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.hashtags {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-instagram:hover {
+    background: linear-gradient(45deg, #3048b5, #4738ca, #6a2599);
+    color: white;
+}
+
+.btn-tiktok {
+    background: #000;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-tiktok:hover {
+    background: #333;
+    color: white;
+}
+
+.copy-btn {
+    background: var(--dark-blue);
+    color: white;
+}
+
+.copy-btn:hover {
+    background: var(--primary-blue);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .post-actions {
+        flex-direction: column;
+    }
+    
+    .post-actions .btn {
+        width: 100%;
+    }
+}

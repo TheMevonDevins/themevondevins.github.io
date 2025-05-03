@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Stockton is Running Dry | Defend Stockton's Water</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="crisis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body class="drought-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="wave-overlay">
+            <ul class="nav-links">
+                <li><a href="index.html" class="wave-link">Homepage</a></li>
+                <li><a href="crisis.html" class="wave-link">The Crisis</a></li>
+                <li><a href="solutions.html" class="wave-link">Solutions</a></li>
+                <li><a href="interactive-tools.html" class="wave-link">Interactive Tools</a></li>
+                <li><a href="action.html" class="wave-link">Take Action</a></li>
+                <li><a href="resources.html" class="wave-link">Resources</a></li>
+                <li><a href="about.html" class="wave-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="crisis-hero">
+        <div class="water-overlay"></div>
+        <div class="hero-content">
+            <h1>Why Stockton is Running Dry</h1>
+            <p>Understanding the water crisis in our community</p>
+            <div class="drought-meter-small">
+                <span>Current Drought Level:</span>
+                <div class="meter-level" style="width: 85%">Moderate</div>
+            </div>
+        </div>
+        <div class="water-wave"></div>
+    </header>
+
+    <!-- Personal Impact -->
+    <section class="personal-impact">
+        <div class="container">
+            <h2 class="section-title">How This Affects You</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon wallet"></div>
+                    <h3>Rising Costs</h3>
+                    <p>Water bills have increased 120% in 10 years. The average family now pays $85/month, straining household budgets.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon health"></div>
+                    <h3>Health Risks</h3>
+                    <p>Drought concentrates pollutants. ER visits for water-related illnesses have doubled since 2015.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon home"></div>
+                    <h3>Property Damage</h3>
+                    <p>Subsidence from groundwater loss has caused $14M in infrastructure damage to homes and roads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causes Timeline -->
+    <section class="causes-section">
+        <div class="container">
+            <h2 class="section-title">Root Causes</h2>
+            <div class="causes-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1980s</div>
+                    <div class="timeline-content">
+                        <h3>Agricultural Expansion</h3>
+                        <p>Water-intensive crops like almonds replaced drought-resistant varieties across 120,000 acres.</p>
+                        <div class="crop-change-chart">
+                            <div class="crop-bar" style="width: 70%; background: #e67e22;">Almonds</div>
+                            <div class="crop-bar" style="width: 30%; background: #27ae60;">Wheat</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1994</div>
+                    <div class="timeline-content">
+                        <h3>Pumping Regulations Lifted</h3>
+                        <p>Groundwater management laws were repealed, leading to unchecked well drilling.</p>
+                        <div class="wells-chart">
+                            <div class="well-dot"></div>
+                            <div class="well-dot"></div>
+                            <div class="well-dot"></div>
+                            <div class="well-dot"></div>
+                            <div class="well-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2012-Present</div>
+                    <div class="timeline-content">
+                        <h3>Megadrought</h3>
+                        <p>The worst drought in 1,200 years reduced surface water by 40%, forcing reliance on groundwater.</p>
+                        <div class="rainfall-chart">
+                            <div class="rainfall-bar" style="height: 30%;"></div>
+                            <div class="rainfall-bar" style="height: 45%;"></div>
+                            <div class="rainfall-bar" style="height: 20%;"></div>
+                            <div class="rainfall-bar" style="height: 15%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causes Timeline - Revised for Residents -->
+<section class="causes-section">
+    <div class="container">
+        <h2 class="section-title">How We Got Here</h2>
+        <div class="causes-timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2005</div>
+                <div class="timeline-content">
+                    <h3>Outdated Water Systems</h3>
+                    <p>Stockton's aging pipes began leaking up to 30% of treated water - that's enough for 15,000 families annually.</p>
+                    <div class="leak-graphic">
+                        <div class="pipe-leak"></div>
+                        <div class="water-drops">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2012</div>
+                <div class="timeline-content">
+                    <h3>Longer Dry Seasons</h3>
+                    <p>Summer extended by 5 weeks compared to 1980s, increasing lawn watering and AC use (which needs water to operate).</p>
+                    <div class="temperature-chart">
+                        <div class="summer-bar" style="height: 70%;">+5 weeks</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-content">
+                    <h3>Population Growth</h3>
+                    <p>50,000+ new residents moved in, but water infrastructure wasn't expanded to match demand.</p>
+                    <div class="population-graphic">
+                        <div class="person-icon"></div>
+                        <div class="person-icon"></div>
+                        <div class="person-icon"></div>
+                        <div class="person-icon faded"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <h3>Water-Intensive Landscaping</h3>
+                    <p>75% of homes kept thirsty lawns despite drought warnings, using 50% of residential water outdoors.</p>
+                    <div class="lawn-graphic">
+                        <div class="grass-area"></div>
+                        <div class="water-drop"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Water Usage Comparison -->
+    <section class="water-comparison">
+        <div class="container">
+            <h2 class="section-title">Water Distribution in San Joaquin County</h2>
+            <div class="comparison-container">
+                <div class="usage-chart">
+                    <div class="chart-legend">
+                        <span class="urban">Urban Use</span>
+                        <span class="agricultural">Agricultural Use</span>
+                    </div>
+                    <div class="chart-bars">
+                        <div class="bar urban-bar" style="height: 30%;" data-percent="30%">
+                            <span>Household</span>
+                        </div>
+                        <div class="bar agricultural-bar" style="height: 70%;" data-percent="70%">
+                            <span>Agriculture</span>
+                        </div>
+                    </div>
+                    <div class="chart-note">
+                        <br>
+                        <br>
+                        <p>Source: San Joaquin County Water Resources, 2023</p>
+                    </div>
+                </div>
+                <div class="comparison-text">
+                    <p>While households account for only 30% of water use in our county, agricultural demands consume the majority of our water resources. This imbalance becomes critical during drought periods.</p>
+                    <p>The average Stockton resident uses 85 gallons per day, while a single acre of almonds can require up to 4,000 gallons daily during peak season.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Groundwater Map -->
+    <section class="groundwater-map">
+        <div class="container">
+            <h2 class="section-title">Groundwater Depletion Hotspots</h2>
+            <div id="depletion-map"></div>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color severe"></span>
+                    <span>Severe Depletion</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color moderate"></span>
+                    <span>Moderate Depletion</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color stable"></span>
+                    <span>Relatively Stable</span>
+                </div>
+            </div>
+            <p class="source-note">Source: California Water Boards Groundwater Monitoring Data</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Voices from Stockton</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Our family farm has been here for three generations, but last year we had to let half our land go fallow because we couldn't get enough water. The wells are running dry."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image farmer"></div>
+                        <div class="author-info">
+                            <h4>Miguel Rodriguez</h4>
+                            <p>Local Farmer, Stockton</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Our water bills have tripled in the past five years. We've replaced our lawn with drought-tolerant plants, but it feels like we're being punished while big farms keep using water like nothing's wrong."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image resident"></div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Stockton Resident</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="crisis-cta">
+        <div class="container">
+            <h2>This Crisis Affects Us All</h2>
+            <p>Learn what you can do to help protect Stockton's water future</p>
+            <a href="action.html" class="btn ripple">Take Action Now</a>
+        </div>
+    </section>
+
+    <!-- Logo Button -->
+    <div class="logo-button-container">
+        <a href="index.html" class="logo-button">
+            <img src="img/watergoober.png" alt="Organization Logo" class="logo-img">
+        </a>
+    </div>
+
+    <!-- Star Background Elements -->
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+
+<!-- Audio Element for Background Music -->
+<audio id="space-music" loop>
+    <source src="audio/star.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Theme Toggle Button -->
+<div class="theme-toggle">
+    <button id="theme-switcher" class="btn">
+        <i class="fas fa-jedi"></i> Switch to Space Theme
+    </button>
+</div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script src="crisis.js"></script>
+</body>
+</html>
