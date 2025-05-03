@@ -447,6 +447,9 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     border-top: 3px solid #d4a418;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure cards take full height of their container */
   }
   
   .testimonial-card:hover {
@@ -459,8 +462,14 @@
     margin-bottom: 1.5rem;
     position: relative;
     color: #555;
+    flex-grow: 1; /* This makes content area grow to fill space */
+    min-height: 120px; /* Minimum height to prevent too much variation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
   }
   
+
   .testimonial-content::before {
     content: '"';
     font-size: 4rem;
@@ -469,12 +478,16 @@
     position: absolute;
     top: -20px;
     left: -10px;
+    line-height: 1;
   }
   
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    border: 2px solid #d4a418;
+    flex-shrink: 0; /* Prevent image from shrinking */
   }
   
   .author-image {
@@ -484,9 +497,16 @@
     background-size: cover;
     border: 2px solid #d4a418;
   }
+
+  .author-image.business {
+    background-image: url('img/gifford.png');
+  }
+  .author-image.parent {
+    background-image: url('img/conrad.jpg');
+  }
   
   .author-image.farmer {
-    background-image: url('img/craig.png');
+    background-image: url('img/christian.jpg');
   }
   
   .author-image.resident {
@@ -957,6 +977,16 @@
       margin-top: 0.5rem;
     }
   }
+
+  /* Testimonials */
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: stretch; /* This makes cards in same row equal height */
+}
+
   
   @media (max-width: 480px) {
     /* Chart bars */
