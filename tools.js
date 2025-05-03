@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             householdSize.value = 1;
             return;
         }
-        const estimatedUsage = size * 1200; // Average 1200 gallons per person per month
+        const estimatedUsage = size * 5236; // Average 5236 gallons per person per month
         currentUsage.value = estimatedUsage;
         
         // Show animation
@@ -629,19 +629,19 @@ playAgainBtn.addEventListener('click', function() {
         const waterFeatures = [
             {
                 name: "Stockton Delta Water Supply",
-                coords: [37.9575, -121.3409],
+                coords: [38.043739456207135, -121.49815501556057],
                 type: "source",
                 description: "Primary source of drinking water for the region"
             },
             {
                 name: "Stockton Regional Wastewater Facility",
-                coords: [37.9761, -121.3008],
+                coords: [37.93733011370202, -121.32745366161363],
                 type: "plant",
                 description: "Treats 30 million gallons of wastewater daily"
             },
             {
                 name: "Mokelumne River",
-                coords: [38.0225, -121.3167],
+                coords: [38.111150236848516, -121.57436044372004],
                 type: "river",
                 description: "Critical water source and wildlife habitat"
             }

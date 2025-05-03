@@ -499,11 +499,11 @@
 }
 
 .author-image.farmer {
-    background-image: url('farmer.jpg');
+    background-image: url('img/craig.png');
 }
 
 .author-image.resident {
-    background-image: url('resident.jpg');
+    background-image: url('img/ceja.jpg');
 }
 
 .author-info h4 {
