@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
       themeSwitcher.innerHTML = '<i class="fas fa-jedi"></i> Switch to Space Theme';
       
       // Update hero content
-      document.querySelector('.hero-content h1').textContent = 'Defend Stockton\'s Water – Act Now!';
+      document.querySelector('.hero-content h1').textContent = 'The Mevon Devins';
       document.querySelector('.hero-content p').textContent = 'Join the movement to protect our most precious resource';
       
       // Update drought meter
