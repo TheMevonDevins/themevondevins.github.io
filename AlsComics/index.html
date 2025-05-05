@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al's Comic Shop - Your Stockton Comic Book Haven</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Accessibility Settings Panel (hidden by default) -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <h3>Accessibility Settings</h3>
+        <button id="close-accessibility" class="close-btn" aria-label="Close accessibility panel">&times;</button>
+        
+        <div class="setting-group">
+            <h4>Color Mode</h4>
+            <button id="colorblind-btn" class="setting-btn">Colorblind Mode</button>
+            <button id="high-contrast-btn" class="setting-btn">High Contrast</button>
+            <button id="reset-color-btn" class="setting-btn">Reset Colors</button>
+        </div>
+        
+        <div class="setting-group">
+            <h4>Text Options</h4>
+            <button id="dyslexia-btn" class="setting-btn">Dyslexia-Friendly Font</button>
+            <div class="font-size-control">
+                <button id="decrease-font" class="size-btn" aria-label="Decrease font size">A-</button>
+                <span id="font-size-display">Medium</span>
+                <button id="increase-font" class="size-btn" aria-label="Increase font size">A+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Settings Button -->
+    <button id="accessibility-btn" class="accessibility-btn" aria-label="Open accessibility settings">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- First Visit Tooltip (shown only on first visit) -->
+    <div id="first-visit-tooltip" class="tooltip">
+        <div class="tooltip-arrow"></div>
+        <p>Welcome to Al's Comic Shop! Click here for accessibility options like colorblind mode and larger text.</p>
+        <button id="close-tooltip" class="tooltip-close">Got it!</button>
+    </div>
+
+    <!-- Comic Book Styled Navigation -->
+    <nav class="comic-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AL'S COMIC SHOP</h1>
+                <div class="comic-bubble">Since 2003!</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="products.html">BROWSE COMICS</a></li>
+                <li><a href="store.html">VISIT US</a></li>
+                <li><a href="events.html">EVENTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="comic-bar"></span>
+                <span class="comic-bar"></span>
+                <span class="comic-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slides">
+                <div class="slide active" style="background-image: url('imgs/inside.jpg')">
+                    <div class="comic-overlay"></div>
+                    <div class="hero-content">
+                        <h2 class="comic-heading">FAMILY-OWNED SINCE 2003</h2>
+                        <p class="comic-subheading">Your home for comics in Stockton!</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('imgs/inside2.jpg')">
+                    <div class="comic-overlay"></div>
+                    <div class="hero-content">
+                        <h2 class="comic-heading">THOUSANDS OF COMICS</h2>
+                        <p class="comic-subheading">Marvel, DC, Image and more!</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('imgs/inside3.jpg')">
+                    <div class="comic-overlay"></div>
+                    <div class="hero-content">
+                        <h2 class="comic-heading">ANIME & MANGA TOO!</h2>
+                        <p class="comic-subheading">Plus pop culture collectibles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="products.html" class="comic-button">BROWSE COMICS</a>
+                <a href="store.html" class="comic-button">VISIT US</a>
+                <a href="contact.html" class="comic-button">CONTACT</a>
+            </div>
+            <div class="slide-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </section>
+
+        <!-- Comic Panels Section -->
+        <section class="comic-panels">
+            <div class="panel">
+                <div class="panel-image" style="background-image: url('imgs/comics.jpg')"></div>
+                <div class="panel-content">
+                    <h3>NEW RELEASES</h3>
+                    <p>Get the latest issues every Wednesday! Subscribe to never miss your favorites.</p>
+                    <a href="products.html" class="comic-link">See what's new →</a>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-image" style="background-image: url('imgs/comics2.jpg')"></div>
+                <div class="panel-content">
+                    <h3>BACK ISSUES</h3>
+                    <p>Thousands of back issues in stock. Let us help you complete your collection!</p>
+                    <a href="products.html" class="comic-link">Browse back issues →</a>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-image" style="background-image: url('imgs/comics3.jpg')"></div>
+                <div class="panel-content">
+                    <h3>GRAPHIC NOVELS</h3>
+                    <p>Complete stories in one volume. Perfect for new readers and collectors alike.</p>
+                    <a href="products.html" class="comic-link">Explore collections →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="about-content">
+                <h2 class="comic-title">WELCOME TO AL'S COMIC SHOP</h2>
+                <p>Step into the universes of Marvel, DC, Image, and more at this comic staple in the Stockton community. In operation for over 20 years, Al's Comic Shop provides thousands of comic books, graphic novels, and more.</p>
+                <p>Whether it's the adventures of Captain America, the justice of Batman, or the darkness of Spawn, Al's has you covered. There's also Anime and Manga to choose from and a number of pop culture items for you to collect.</p>
+                <p class="highlight">All levels of comic lovers are welcome!</p>
+            </div>
+            <div class="about-image">
+                <div class="comic-border"></div>
+                <img src="imgs/inside3.jpg" alt="Al's Comic Shop interior">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="comic-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Browse Comics</a></li>
+                    <li><a href="store.html">Visit Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>STORE HOURS</h3>
+                <ul>
+                    <li>Mon-Fri: 10am - 7pm</li>
+                    <li>Saturday: 10am - 8pm</li>
+                    <li>Sunday: 11am - 5pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONNECT</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>123 Comic Street<br>Stockton, CA 95202</p>
+                <p>(209) 555-COMIC</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Al's Comic Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Comic Book Effects -->
+    <div class="comic-dots"></div>
+    <div class="comic-lines"></div>
+    
+    <!-- POW Effect (for animations) -->
+    <div class="pow-effect" style="display: none;">POW!</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
