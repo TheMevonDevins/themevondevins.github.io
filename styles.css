@@ -102,7 +102,7 @@ nav {
 }
 
 .mascot-gif {
-    width: 20rem;
+    width: 24rem;
     height: 20rem;
     transition: all 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(2, 169, 247, 0.7));
