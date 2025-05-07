@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mevon Devins | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body class="bg-gradient-to-b from-[#01303F] to-[#02577A]">
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navigation -->
+        <nav class="sticky top-0 z-50 bg-[#01303F] bg-opacity-90 backdrop-blur-md border-b border-[#02A9F7] transition-all duration-300">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <img src="img/Mevon.png" alt="Mevon Logo" class="nav-logo w-12 h-12 mr-3 transition-all duration-300">
+                        <span class="font-bold text-xl text-white">
+                            <span class="text-[#89D6FB]">THE</span><span class="text-[#02A9F7]">MEVON</span><span class="text-[#d4f0fc]">DEVINS</span>
+                        </span>
+                    </div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="index" class="nav-link text-[#d4f0fc] font-medium">HOME</a>
+                        <a href="portfolio" class="nav-link active-nav text-[#d4f0fc] font-medium">PORTFOLIO</a>
+                        <a href="contact" class="nav-link text-[#d4f0fc] font-medium">CONTACT</a>
+                        <a href="about" class="nav-link text-[#d4f0fc] font-medium">ABOUT</a>
+                    </div>
+                    <button id="mobile-menu-button" class="md:hidden text-[#d4f0fc] focus:outline-none hover:text-[#02A9F7] transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 py-3 bg-[#01303F] transition-all duration-300">
+                <div class="flex flex-col space-y-3">
+                    <a href="index" class="nav-link text-[#d4f0fc] font-medium">HOME</a>
+                    <a href="portfolio" class="nav-link active-nav text-[#d4f0fc] font-medium">PORTFOLIO</a>
+                    <a href="contact" class="nav-link text-[#d4f0fc] font-medium">CONTACT US</a>
+                    <a href="about" class="nav-link text-[#d4f0fc] font-medium">ABOUT US</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Portfolio Hero -->
+        <section class="py-20 px-4 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMjU3N2EiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMCA0MC40Mmg0MFYwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+            <div class="container mx-auto text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">OUR</span>
+                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">CREATIVE</span>
+                    <span class="block decrypt-text decrypt-delay-3 text-[#d4f0fc]">PORTFOLIO</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-[#d4f0fc] max-w-2xl mx-auto">
+                    Explore our collection of handcrafted digital experiences. Each project tells a unique story of innovation and technical excellence.
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Filter -->
+        <section class="py-10 bg-[#01303F] bg-opacity-70">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="portfolio-filter active-filter bg-[#02A9F7] text-white font-medium py-2 px-6 rounded-full transition-all duration-300" data-filter="all">All Projects</button>
+                    <!--
+                    <button class="portfolio-filter bg-[#02577A] hover:bg-[#02A9F7] text-white font-medium py-2 px-6 rounded-full transition-all duration-300" data-filter="web">Web Design</button>
+                    <button class="portfolio-filter bg-[#02577A] hover:bg-[#02A9F7] text-white font-medium py-2 px-6 rounded-full transition-all duration-300" data-filter="app">Web Apps</button>
+                    <button class="portfolio-filter bg-[#02577A] hover:bg-[#02A9F7] text-white font-medium py-2 px-6 rounded-full transition-all duration-300" data-filter="ecommerce">E-Commerce</button>
+                    <button class="portfolio-filter bg-[#02577A] hover:bg-[#02A9F7] text-white font-medium py-2 px-6 rounded-full transition-all duration-300" data-filter="mobile">Mobile</button>
+                -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <section class="py-20 bg-gradient-to-b from-[#01303F] to-[#02577A]">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item web" data-category="web">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="img/comics.jpg" alt="Project 1" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="AlsComics/index.html" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Comic Book Website Template</h3>
+                                <br>
+                                <p class="text-[#d4f0fc] mb-4">A sleek, responsive website for a comic book shop client with custom animations.</p>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">HTML/CSS</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-item app" data-category="app">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="img/watersegg.jpg" alt="Project 2" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="Mainweb/index.html" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">The Mevon Devins water concervation campain website</h3>
+                                <p class="text-[#d4f0fc] mb-4">A website done to promote the conservation of water in California!</p>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">HTML</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">CSS</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item ecommerce" data-category="ecommerce">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/01303F/d4f0fc/png?text=Coming+Soon" alt="Coming Soon" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="#" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                    <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full transition-all duration-300 hover:bg-white hover:text-[#01303F]">Details</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Coming Soon  </h3>
+                                <br>
+                                <p class="text-[#d4f0fc] mb-4">More Projects amazing looking projects on the way!</p>
+                                <br>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Null</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Null</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Null</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    <!--
+                     Project 4 
+                    <div class="portfolio-item mobile" data-category="mobile">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/02577A/01303F/png?text=Project+4" alt="Project 4" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="#" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                    <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full transition-all duration-300 hover:bg-white hover:text-[#01303F]">Details</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Fitness Mobile App</h3>
+                                <p class="text-[#d4f0fc] mb-4">A cross-platform mobile application for workout tracking and nutrition planning.</p>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">React Native</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Firebase</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Redux</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     Project 5 
+                    <div class="portfolio-item web" data-category="web">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/01303F/02A9F7/png?text=Project+5" alt="Project 5" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="#" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                    <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full transition-all duration-300 hover:bg-white hover:text-[#01303F]">Details</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Creative Agency Website</h3>
+                                <p class="text-[#d4f0fc] mb-4">A visually stunning portfolio site with smooth animations and video backgrounds.</p>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">GSAP</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Three.js</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">WebGL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     Project 6
+                    <div class="portfolio-item ecommerce" data-category="ecommerce">
+                        <div class="project-card bg-[#01303F] rounded-lg overflow-hidden border border-[#02577A] hover:border-[#02A9F7] transition-all duration-300 h-full flex flex-col">
+                            <div class="project-image overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/01303F/89D6FB/png?text=Project+6" alt="Project 6" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="project-links absolute inset-0 bg-[#02A9F7] bg-opacity-90 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <a href="#" class="bg-white text-[#01303F] font-bold py-2 px-4 rounded-full mr-3 transition-all duration-300 hover:bg-[#01303F] hover:text-white">View Live</a>
+                                    <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full transition-all duration-300 hover:bg-white hover:text-[#01303F]">Details</a>
+                                </div>
+                            </div>
+                            <div class="project-info p-6 flex-grow">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Electronics Store</h3>
+                                <p class="text-[#d4f0fc] mb-4">A high-performance e-commerce platform with advanced search and filtering.</p>
+                                <div class="project-tags flex flex-wrap gap-2">
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">Magento</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">PHP</span>
+                                    <span class="text-xs bg-[#02577A] text-[#d4f0fc] px-3 py-1 rounded-full">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
+        </section>
+
+        <!--
+         Testimonials 
+        <section class="py-20 bg-[#01303F] bg-opacity-70">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-white">
+                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">CLIENT</span>
+                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">TESTIMONIALS</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="testimonial-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Sarah Johnson</h4>
+                                <p class="text-[#89D6FB]">CEO, TechSolutions</p>
+                            </div>
+                        </div>
+                        <p class="text-[#d4f0fc] italic">"The Mevon Devins transformed our outdated website into a modern, functional masterpiece. Their attention to detail and creative approach exceeded our expectations."</p>
+                        <div class="mt-4 flex">
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                        </div>
+                    </div>
+                    
+
+                    <div class="testimonial-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Michael Chen</h4>
+                                <p class="text-[#89D6FB]">Founder, AppVenture</p>
+                            </div>
+                        </div>
+                        <p class="text-[#d4f0fc] italic">"Working with The Mevon Devins was a game-changer for our startup. They delivered our mobile app ahead of schedule and under budget. Highly recommended!"</p>
+                        <div class="mt-4 flex">
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                        </div>
+                    </div>
+                    
+
+                    <div class="testimonial-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Emily Rodriguez</h4>
+                                <p class="text-[#89D6FB]">Marketing Director, StyleHub</p>
+                            </div>
+                        </div>
+                        <p class="text-[#d4f0fc] italic">"Our e-commerce site saw a 40% increase in conversions after The Mevon Devins redesigned it. Their understanding of user experience is exceptional."</p>
+                        <div class="mt-4 flex">
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                            <span class="text-[#02A9F7]">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    -->
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-b from-[#02577A] to-[#01303F]">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">
+                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">READY TO</span>
+                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">START YOUR</span>
+                    <span class="block decrypt-text decrypt-delay-3 text-[#d4f0fc]">PROJECT?</span>
+                </h2>
+                <p class="text-lg md:text-xl mb-8 text-[#d4f0fc] max-w-2xl mx-auto">
+                    Let's create something amazing together. Get in touch to discuss your project ideas and requirements.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contact.html" class="tech-button inline-block bg-[#02A9F7] hover:bg-[#02577A] text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-[#02A9F7]/50">CONTACT US</a>
+                    <a href="about.html" class="tech-button inline-block bg-transparent border-2 border-[#02A9F7] hover:bg-[#02A9F7] text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-[#02A9F7]/50">LEARN MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#01303F] py-8 border-t border-[#02A9F7]">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <img src="img/Mevon.png" alt="Mevon Logo" class="w-10 h-10 mr-3">
+                        <span class="font-bold text-lg text-white">THE MEVON DEVINS</span>
+                    </div>
+                    <div class="text-[#d4f0fc] text-sm">&copy; 2023 The Mevon Devins. All rights reserved.</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+    <script src="portfolio.js"></script>
+
+    <!-- Tech Background Elements -->
+    <div class="tech-lines">
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+    </div>
+</body>
+</html>

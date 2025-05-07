@@ -1,82 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Core Elements
-    const splashScreen = document.getElementById('splash-screen');
-    const loadingProgress = document.getElementById('loading-progress');
-    const mascotLoading = document.getElementById('mascot-loading');
     const mainContent = document.getElementById('main-content');
-    const splashAudio = document.getElementById('splash-audio');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    // State Variables
-    let loaded = false;
-    let minTimePassed = false;
+    // Initialize functions
+    initMobileMenu();
+    initPortfolioFilter();
+    initInteractiveElements();
+    initNavbarEffects();
+    initScrollEffects();
+    initDecryptAnimations();
+    createFloatingCode();
 
     // ======================
-    // INITIAL LOAD SEQUENCE
+    // MOBILE MENU
     // ======================
-
-    // Mobile menu toggle
-    mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.classList.toggle('text-[#02A9F7]');
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.classList.remove('text-[#02A9F7]');
+    function initMobileMenu() {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('text-[#02A9F7]');
         });
-    });
 
-    // Simulate loading progress
-    let progress = 0;
-    const loadingInterval = setInterval(() => {
-        progress += Math.random() * 10;
-        if (progress > 100) progress = 100;
-        loadingProgress.style.width = `${progress}%`;
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('text-[#02A9F7]');
+            });
+        });
+    }
 
-        // Gradually reveal the mascot image
-        mascotLoading.style.opacity = `${progress / 100}`;
+    // ======================
+    // PORTFOLIO FILTER
+    // ======================
+    function initPortfolioFilter() {
+        const filterButtons = document.querySelectorAll('.portfolio-filter');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-        if (progress === 100) {
-            loaded = true;
-            clearInterval(loadingInterval);
-            checkLoadingComplete();
-        }
-    }, 300);
-
-    // Ensure minimum 3 seconds loading time
-    setTimeout(() => {
-        minTimePassed = true;
-        checkLoadingComplete();
-    }, 3000);
-
-    function checkLoadingComplete() {
-        if (loaded && minTimePassed) {
-            // Mascot pop animation
-            mascotLoading.classList.add('animate__animated', 'animate__bounce');
-
-            // Play audio
-            splashAudio.play().catch(e => console.log("Audio play failed:", e));
-
-            // Fade out splash screen and show main content
-            setTimeout(() => {
-                splashScreen.style.opacity = '0';
-                setTimeout(() => {
-                    splashScreen.style.display = 'none';
-                    mainContent.classList.remove('opacity-0');
-                    mainContent.classList.add('dissolve-in');
-
-                    // Initialize all interactive elements
-                    initInteractiveElements();
-                    initNavbarEffects();
-                    initScrollEffects();
-                    initDecryptAnimations();
-                }, 1000);
-            }, 1000);
-        }
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+                this.classList.add('active-filter');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
     }
 
     // ======================
@@ -106,47 +85,30 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Service cards hover effect
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
+        // Project cards hover effect
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                card.style.boxShadow = `${x - rect.width/2}px ${y - rect.height/2}px 30px rgba(2, 169, 247, 0.2)`;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
             });
+        });
 
+        // Testimonial cards hover effect
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        testimonialCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 10px 25px rgba(2, 169, 247, 0.3)';
+            });
             card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
                 card.style.boxShadow = '';
             });
         });
-
-        // Social icons hover effect
-        const socialIcons = document.querySelectorAll('.social-icon');
-        socialIcons.forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                const svg = icon.querySelector('svg');
-                if (svg) {
-                    svg.style.transform = 'rotate(10deg)';
-                }
-            });
-            icon.addEventListener('mouseleave', () => {
-                const svg = icon.querySelector('svg');
-                if (svg) {
-                    svg.style.transform = '';
-                }
-            });
-        });
-
-        // Mascot parallax effect
-        const mascotGif = document.querySelector('.mascot-gif');
-        if (mascotGif) {
-            window.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                mascotGif.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
-            });
-        }
     }
 
     // ======================
@@ -171,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let lastScrollPosition = 0;
         window.addEventListener('scroll', () => {
             const currentScrollPosition = window.pageYOffset;
-            
             if (currentScrollPosition > lastScrollPosition) {
                 // Scrolling down
                 nav.style.transform = 'translateY(-100%)';
@@ -186,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 nav.style.boxShadow = '0 0 20px rgba(2, 169, 247, 0.1)';
             }
-            
             lastScrollPosition = currentScrollPosition;
         });
     }
@@ -196,8 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ======================
     function initScrollEffects() {
         // Scroll reveal animation
-        const scrollElements = document.querySelectorAll('.service-card, .social-icon, section');
-        
+        const scrollElements = document.querySelectorAll('.project-card, .testimonial-card, section');
         const elementInView = (el) => {
             const elementTop = el.getBoundingClientRect().top;
             return (elementTop <= (window.innerHeight || document.documentElement.clientHeight));
@@ -228,21 +187,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function initDecryptAnimations() {
         // Animate all elements with decrypt-text class
         const decryptElements = document.querySelectorAll('.decrypt-text');
-        
         decryptElements.forEach((el, index) => {
             // If no specific delay class exists, add staggered delay
-            if (!el.classList.contains('decrypt-delay-1') && 
-                !el.classList.contains('decrypt-delay-2') && 
+            if (!el.classList.contains('decrypt-delay-1') &&
+                !el.classList.contains('decrypt-delay-2') &&
                 !el.classList.contains('decrypt-delay-3')) {
                 el.style.animationDelay = `${index * 0.2}s`;
             }
-            
+
             // For terminal-like typing effect
             if (el.classList.contains('terminal-type')) {
                 const text = el.textContent;
                 el.textContent = '';
                 el.style.width = '0';
-                
                 setTimeout(() => {
                     el.textContent = text;
                     el.style.width = '100%';
@@ -252,36 +209,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Call this function after main content is shown
-    // Update your checkLoadingComplete function:
-    function checkLoadingComplete() {
-        if (loaded && minTimePassed) {
-            // ... existing splash screen hide code ...
-            
-            setTimeout(() => {
-                splashScreen.style.display = 'none';
-                mainContent.classList.remove('opacity-0');
-                mainContent.classList.add('dissolve-in');
-    
-                // Initialize animations AFTER content is visible
-                setTimeout(() => {
-                    initDecryptAnimations();
-                    initInteractiveElements();
-                    initNavbarEffects();
-                    initScrollEffects();
-                }, 300); // Small delay to ensure rendering
-            }, 1000);
-        }
-    }
 
-    // Initialize floating code elements
-    createFloatingCode();
-
+    // ======================
+    // FLOATING CODE ELEMENTS
+    // ======================
     function createFloatingCode() {
         const codeChars = ['{', '}', '<', '>', '(', ')', ';', '=', '/', '\\', '[', ']'];
         const colors = ['#89D6FB', '#02A9F7', '#d4f0fc'];
-        
+
         for (let i = 0; i < 20; i++) {
             const code = document.createElement('div');
             code.textContent = codeChars[Math.floor(Math.random() * codeChars.length)];
@@ -299,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const startY = Math.random() * window.innerHeight;
             code.style.left = `${startX}px`;
             code.style.top = `${startY}px`;
-            
             document.body.appendChild(code);
 
             // Animate floating
@@ -311,21 +245,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const duration = 30000 + Math.random() * 30000;
         const startX = parseFloat(element.style.left);
         const startY = parseFloat(element.style.top);
-
         const keyframes = [
             { transform: `translate(0, 0)`, opacity: 0.7 },
             { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.5 },
             { transform: `translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 200}px)`, opacity: 0.3 },
             { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.7 }
         ];
-
         const options = {
             duration: duration,
             iterations: Infinity,
             direction: 'alternate',
             easing: 'ease-in-out'
         };
-
         element.animate(keyframes, options);
 
         // Random flicker effect
