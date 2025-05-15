@@ -6,231 +6,1188 @@
     <title>The Mevon Devins | Web Development</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-light: #d4f0fc;
+            --primary-light-2: #89D6FB;
+            --primary: #02A9F7;
+            --primary-dark: #02577A;
+            --primary-dark-2: #01303F;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-light);
+            background: linear-gradient(to bottom, var(--primary-dark-2), var(--primary-dark));
+            overflow-x: hidden;
+            position: relative;
+        }
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-dark-2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s ease-out;
+        }
+
+        #loading-bar {
+            width: 200px;
+            height: 4px;
+            background-color: var(--primary-dark);
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        #loading-progress {
+            height: 100%;
+            width: 0%;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(1, 48, 63, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--primary);
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            color: var(--primary-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active-nav {
+            color: var(--primary) !important;
+        }
+
+        .active-nav::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 5rem 1rem;
+            position: relative;
+        }
+
+        .mascot-gif {
+            width: 240rem;
+            height: 20rem;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(2, 169, 247, 0.7));
+        }
+
+        .mascot-gif:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(2, 169, 247, 0.9));
+        }
+
+        .hero-heading {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-heading span {
+            display: block;
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+        }
+
+        /* Tech Button */
+        .tech-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(2, 169, 247, 0.3);
+            background-color: var(--primary-dark);
+        }
+
+        .tech-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(210, 240, 252, 0.4), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .tech-button:hover::before {
+            left: 100%;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 1rem;
+            background-color: rgba(1, 48, 63, 0.7);
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-heading span {
+            display: block;
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--primary-dark);
+            background-color: var(--primary-dark-2);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background-color: var(--primary-dark);
+            box-shadow: 0 10px 25px rgba(2, 169, 247, 0.3);
+        }
+
+        .service-icon {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .service-card p {
+            color: var(--primary-light);
+        }
+
+        /* Socials Section */
+        .socials-section {
+            padding: 5rem 1rem;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark-2));
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .icon-container {
+            background-color: white;
+            border-radius: 50%;
+            padding: 1rem;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover .icon-container {
+            background-color: var(--primary);
+        }
+
+        .icon-container svg {
+            color: var(--primary-dark-2);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover .icon-container svg {
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .social-icon span {
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 1rem;
+            background-color: var(--primary-dark-2);
+            border-top: 1px solid var(--primary);
+        }
+
+        /* Decryption Text Animation */
+        @keyframes decrypt {
+            0% {
+                opacity: 0;
+                filter: blur(5px);
+                letter-spacing: 0.5em;
+            }
+            50% {
+                opacity: 0.5;
+                filter: blur(3px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                letter-spacing: normal;
+            }
+        }
+
+        .decrypt-text {
+            animation: decrypt 1.5s ease-out forwards;
+            opacity: 0;
+            display: inline-block; /* Important for letter-spacing to work */
+        }
+
+        .decrypt-delay-1 { animation-delay: 0.3s; }
+        .decrypt-delay-2 { animation-delay: 0.6s; }
+        .decrypt-delay-3 { animation-delay: 0.9s; }
+
+        /* For a more advanced terminal-like effect */
+        @keyframes terminal-type {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        .terminal-type {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: terminal-type 2s steps(40, end);
+        }
+
+        /* Tech Background Elements */
+        .tech-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .tech-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0.1;
+            animation: techFlow 15s linear infinite;
+        }
+
+        .tech-line:nth-child(1) {
+            top: 20%;
+            left: -100px;
+            width: 300px;
+            height: 1px;
+            animation-delay: 0s;
+        }
+
+        .tech-line:nth-child(2) {
+            top: 40%;
+            right: -100px;
+            width: 400px;
+            height: 1px;
+            animation-delay: 3s;
+            animation-direction: reverse;
+        }
+
+        .tech-line:nth-child(3) {
+            bottom: 30%;
+            left: -100px;
+            width: 500px;
+            height: 1px;
+            animation-delay: 6s;
+        }
+
+        .tech-line:nth-child(4) {
+            top: 60%;
+            right: -100px;
+            width: 200px;
+            height: 1px;
+            animation-delay: 9s;
+            animation-direction: reverse;
+        }
+
+        @keyframes techFlow {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 2.25rem;
+            }
+
+            .section-heading {
+                font-size: 2.25rem;
+            }
+
+            .mascot-gif {
+                width: 12rem;
+                height: 16rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Dissolve-in animation */
+        .dissolve-in {
+            animation: dissolveIn 1s ease-out forwards;
+        }
+
+        @keyframes dissolveIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body class="bg-gradient-to-b from-[#01303F] to-[#02577A]">
-    <!-- Splash Screen -->
-    <div id="splash-screen" class="fixed inset-0 flex items-center justify-center bg-[#01303F] z-50 transition-opacity duration-1000">
-        <div class="text-center">
-            <img id="mascot-loading" src="img/suitMevon.png" alt="Mevon Mascot" class="w-48 h-48 object-cover object-center mb-4 opacity-0 mx-auto">
-            <h1 class="text-4xl font-bold text-[#89D6FB] mb-6">MEVON</h1>
-            <div id="loading-bar" class="w-64 h-2 bg-[#02577A] rounded-full mx-auto overflow-hidden">
-                <div id="loading-progress" class="h-full bg-[#02A9F7] transition-all duration-300"></div>
-            </div>
+<!-- Splash Screen -->
+<div id="splash-screen" class="fixed inset-0 flex items-center justify-center bg-[#01303F] z-50 transition-opacity duration-1000">
+    <div class="text-center">
+        <img id="mascot-loading" src="img/suitMevon.png" alt="Mevon Mascot" class="w-48 h-48 object-cover object-center mb-4 opacity-0 mx-auto">
+        <h1 class="text-4xl font-bold text-[#89D6FB] mb-6">MEVON</h1>
+        <div id="loading-bar" class="w-64 h-2 bg-[#02577A] rounded-full mx-auto overflow-hidden">
+            <div id="loading-progress" class="h-full bg-[#02A9F7] transition-all duration-300"></div>
         </div>
     </div>
+</div>
 
-    <!-- Main Content -->
-    <div id="main-content" class="opacity-0">
-        <!-- Navigation -->
-        <nav class="sticky top-0 z-50 bg-[#01303F] bg-opacity-90 backdrop-blur-md border-b border-[#02A9F7] transition-all duration-300">
-            <div class="container mx-auto px-6 py-3">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center">
-                        <img src="img/suitMevon.png" alt="Mevon Logo" class="nav-logo w-12 h-12 mr-3 transition-all duration-300">
-                        <span class="font-bold text-xl text-white">
+<!-- Main Content -->
+<div id="main-content" class="opacity-0">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#01303F] bg-opacity-90 backdrop-blur-md border-b border-[#02A9F7] transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="img/suitMevon.png" alt="Mevon Logo" class="nav-logo w-12 h-12 mr-3 transition-all duration-300">
+                    <span class="font-bold text-xl text-white">
                             <span class="text-[#89D6FB]">THE</span>
                             <span class="text-[#02A9F7]">MEVON</span>
                             <span class="text-[#d4f0fc]">DEVINS</span>
                         </span>
-                    </div>
-                    <div class="hidden md:flex space-x-6">
-                        <a href="index" class="nav-link active-nav text-[#d4f0fc] font-medium">HOME</a>
-                        <a href="portfolio" class="nav-link text-[#d4f0fc] font-medium">PORTFOLIO</a>
-                        <a href="#" class="nav-link text-[#d4f0fc] font-medium">CONTACT</a>
-                        <a href="#" class="nav-link text-[#d4f0fc] font-medium">ABOUT</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-[#d4f0fc] focus:outline-none hover:text-[#02A9F7] transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
                 </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 py-3 bg-[#01303F] transition-all duration-300">
-                <div class="flex flex-col space-y-3">
+                <div class="hidden md:flex space-x-6">
                     <a href="index" class="nav-link active-nav text-[#d4f0fc] font-medium">HOME</a>
                     <a href="portfolio" class="nav-link text-[#d4f0fc] font-medium">PORTFOLIO</a>
-                    <a href="#" class="nav-link text-[#d4f0fc] font-medium">CONTACT US</a>
-                    <a href="#" class="nav-link text-[#d4f0fc] font-medium">ABOUT US</a>
+                    <a href="contact" class="nav-link text-[#d4f0fc] font-medium">CONTACT</a>
+                    <a href="about" class="nav-link text-[#d4f0fc] font-medium">ABOUT</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-[#d4f0fc] focus:outline-none hover:text-[#02A9F7] transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 py-3 bg-[#01303F] transition-all duration-300">
+            <div class="flex flex-col space-y-3">
+                <a href="index" class="nav-link active-nav text-[#d4f0fc] font-medium">HOME</a>
+                <a href="portfolio" class="nav-link text-[#d4f0fc] font-medium">PORTFOLIO</a>
+                <a href="contact" class="nav-link text-[#d4f0fc] font-medium">CONTACT US</a>
+                <a href="about" class="nav-link text-[#d4f0fc] font-medium">ABOUT US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMjU3N2EiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMCA0MC40Mmg0MFYwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+        <div class="container mx-auto flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
+                <img src="img/suitMevon.png" alt="Mevon Mascot GIF" class="mascot-gif w-64 h-80 md:w-80 md:h-96">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">CRAFTING</span>
+                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">DIGITAL</span>
+                    <span class="block decrypt-text decrypt-delay-3 text-[#d4f0fc]">EXPERIENCES</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-[#d4f0fc] max-w-lg mx-auto md:mx-0">
+                    We build immersive web experiences that blend cutting-edge technology with stunning design.
+                </p>
+                <a href="portfolio.html" class="tech-button inline-block bg-[#02A9F7] hover:bg-[#02577A] text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-[#02A9F7]/50">
+                    VIEW OUR PORTFOLIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-[#01303F] bg-opacity-70">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-white">
+                <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">OUR</span>
+                <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">SERVICES</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Custom Website Development</h3>
+                    <p class="text-[#d4f0fc]">Tailored web solutions designed to meet your specific business needs, from sleek landing pages to complex web applications.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Domain Management</h3>
+                    <p class="text-[#d4f0fc]">Full-service domain registration, transfer, and management to establish your perfect online identity.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Web Optimization</h3>
+                    <p class="text-[#d4f0fc]">Speed, SEO, and security enhancements to ensure your website performs at its peak potential.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">UI/UX Design</h3>
+                    <p class="text-[#d4f0fc]">Intuitive and beautiful interfaces designed to engage users and enhance their experience.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Mobile Responsiveness</h3>
+                    <p class="text-[#d4f0fc]">Websites that look and function perfectly on all devices, from desktop to smartphone.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
+                    <div class="text-[#02A9F7] mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Hosting Solutions</h3>
+                    <p class="text-[#d4f0fc]">Reliable, secure, and scalable hosting options to keep your website running smoothly.</p>
                 </div>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        <!-- Hero Section -->
-        <section class="py-20 px-4 relative overflow-hidden">
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMjU3N2EiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMCA0MC40Mmg0MFYwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
-            <div class="container mx-auto flex flex-col md:flex-row items-center relative z-10">
-                <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
-                    <img src="img/suitMevon.png" alt="Mevon Mascot GIF" class="mascot-gif w-64 h-80 md:w-80 md:h-96">
-                </div>
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
-                        <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">CRAFTING</span>
-                        <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">DIGITAL</span>
-                        <span class="block decrypt-text decrypt-delay-3 text-[#d4f0fc]">EXPERIENCES</span>
-                    </h1>
-                    <p class="text-lg md:text-xl mb-8 text-[#d4f0fc] max-w-lg mx-auto md:mx-0">
-                        We build immersive web experiences that blend cutting-edge technology with stunning design.
-                    </p>
-                    <a href="portfolio.html" class="tech-button inline-block bg-[#02A9F7] hover:bg-[#02577A] text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-[#02A9F7]/50">
-                        VIEW OUR PORTFOLIO
-                    </a>
-                </div>
+    <!-- Socials Section -->
+    <section class="py-20 bg-gradient-to-b from-[#02577A] to-[#01303F]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-white">
+                <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">CONNECT</span>
+                <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">WITH US</span>
+            </h2>
+            <div class="flex justify-center space-x-8 md:space-x-12 flex-wrap">
+                <!-- Instagram -->
+                <a href="#" class="social-icon mb-6">
+                    <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
+                        <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <span class="mt-2 block text-white font-medium">Instagram</span>
+                </a>
+                <!-- TikTok -->
+                <a href="#" class="social-icon mb-6">
+                    <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
+                        <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </div>
+                    <span class="mt-2 block text-white font-medium">TikTok</span>
+                </a>
+                <!-- Twitter -->
+                <a href="#" class="social-icon mb-6">
+                    <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
+                        <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </div>
+                    <span class="mt-2 block text-white font-medium">Twitter</span>
+                </a>
+                <!-- GitHub -->
+                <a href="#" class="social-icon mb-6">
+                    <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
+                        <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </div>
+                    <span class="mt-2 block text-white font-medium">GitHub</span>
+                </a>
+                <!-- LinkedIn -->
+                <a href="#" class="social-icon mb-6">
+                    <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
+                        <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </div>
+                    <span class="mt-2 block text-white font-medium">LinkedIn</span>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section class="py-20 bg-[#01303F] bg-opacity-70">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-white">
-                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">OUR</span>
-                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">SERVICES</span>
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Custom Website Development</h3>
-                        <p class="text-[#d4f0fc]">Tailored web solutions designed to meet your specific business needs, from sleek landing pages to complex web applications.</p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Domain Management</h3>
-                        <p class="text-[#d4f0fc]">Full-service domain registration, transfer, and management to establish your perfect online identity.</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Web Optimization</h3>
-                        <p class="text-[#d4f0fc]">Speed, SEO, and security enhancements to ensure your website performs at its peak potential.</p>
-                    </div>
-                    <!-- Service 4 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">UI/UX Design</h3>
-                        <p class="text-[#d4f0fc]">Intuitive and beautiful interfaces designed to engage users and enhance their experience.</p>
-                    </div>
-                    <!-- Service 5 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Mobile Responsiveness</h3>
-                        <p class="text-[#d4f0fc]">Websites that look and function perfectly on all devices, from desktop to smartphone.</p>
-                    </div>
-                    <!-- Service 6 -->
-                    <div class="service-card p-8 rounded-lg border border-[#02577A] hover:border-[#02A9F7] bg-[#01303F] hover:bg-[#02577A] transition-all duration-300">
-                        <div class="text-[#02A9F7] mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white decrypt-text">Hosting Solutions</h3>
-                        <p class="text-[#d4f0fc]">Reliable, secure, and scalable hosting options to keep your website running smoothly.</p>
-                    </div>
+    <!-- Footer -->
+    <footer class="bg-[#01303F] py-8 border-t border-[#02A9F7]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="img/suitMevon.png" alt="Mevon Logo" class="w-10 h-10 mr-3">
+                    <span class="font-bold text-lg text-white">THE MEVON DEVINS</span>
                 </div>
+                <div class="text-[#d4f0fc] text-sm">&copy; 2023 The Mevon Devins. All rights reserved.</div>
             </div>
-        </section>
+        </div>
+    </footer>
+</div>
 
-        <!-- Socials Section -->
-        <section class="py-20 bg-gradient-to-b from-[#02577A] to-[#01303F]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-white">
-                    <span class="block decrypt-text decrypt-delay-1 text-[#89D6FB]">CONNECT</span>
-                    <span class="block decrypt-text decrypt-delay-2 text-[#02A9F7]">WITH US</span>
-                </h2>
-                <div class="flex justify-center space-x-8 md:space-x-12 flex-wrap">
-                    <!-- Instagram -->
-                    <a href="#" class="social-icon mb-6">
-                        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
-                            <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </div>
-                        <span class="mt-2 block text-white font-medium">Instagram</span>
-                    </a>
-                    <!-- TikTok -->
-                    <a href="#" class="social-icon mb-6">
-                        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
-                            <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                        </div>
-                        <span class="mt-2 block text-white font-medium">TikTok</span>
-                    </a>
-                    <!-- Twitter -->
-                    <a href="#" class="social-icon mb-6">
-                        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
-                            <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-                        </div>
-                        <span class="mt-2 block text-white font-medium">Twitter</span>
-                    </a>
-                    <!-- GitHub -->
-                    <a href="#" class="social-icon mb-6">
-                        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
-                            <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                        </div>
-                        <span class="mt-2 block text-white font-medium">GitHub</span>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="#" class="social-icon mb-6">
-                        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center transition-all duration-300 hover:bg-[#02A9F7]">
-                            <svg class="w-8 h-8 text-[#01303F]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </div>
-                        <span class="mt-2 block text-white font-medium">LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+<!-- Audio Element (hidden) -->
+<audio id="splash-audio" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
 
-        <!-- Footer -->
-        <footer class="bg-[#01303F] py-8 border-t border-[#02A9F7]">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="flex items-center mb-4 md:mb-0">
-                        <img src="img/suitMevon.png" alt="Mevon Logo" class="w-10 h-10 mr-3">
-                        <span class="font-bold text-lg text-white">THE MEVON DEVINS</span>
-                    </div>
-                    <div class="text-[#d4f0fc] text-sm">&copy; 2023 The Mevon Devins. All rights reserved.</div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Audio Element (hidden) -->
-    <audio id="splash-audio" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
-    
-    <!-- Scripts -->
-    <script src="script.js"></script>
-
-    <!-- Tech Background Elements -->
-    <div class="tech-lines">
-        <div class="tech-line"></div>
-        <div class="tech-line"></div>
-        <div class="tech-line"></div>
-        <div class="tech-line"></div>
-    </div>
+<!-- Tech Background Elements -->
+<div class="tech-lines">
+    <div class="tech-line"></div>
+    <div class="tech-line"></div>
+    <div class="tech-line"></div>
+    <div class="tech-line"></div>
+</div>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const splashScreen = document.getElementById('splash-screen');
+        const loadingProgress = document.getElementById('loading-progress');
+        const mascotLoading = document.getElementById('mascot-loading');
+        const mainContent = document.getElementById('main-content');
+        const splashAudio = document.getElementById('splash-audio');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Check if splash has already been shown
+        const splashShown = localStorage.getItem('splashShown');
+        if (splashShown) {
+            splashScreen.style.display = 'none';
+            mainContent.style.opacity = '1';
+            initDecryptAnimations();
+            initInteractiveElements();
+            initNavbarEffects();
+            initScrollEffects();
+            createFloatingCode();
+            return;
+        }
+
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('text-[#02A9F7]');
+        });
+
+        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('text-[#02A9F7]');
+            });
+        });
+
+        let loaded = false;
+        let minTimePassed = false;
+
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 10;
+            if (progress > 100) progress = 100;
+            loadingProgress.style.width = `${progress}%`;
+            mascotLoading.style.opacity = `${progress / 100}`;
+            if (progress === 100) {
+                loaded = true;
+                clearInterval(loadingInterval);
+                checkLoadingComplete();
+            }
+        }, 300);
+
+        setTimeout(() => {
+            minTimePassed = true;
+            checkLoadingComplete();
+        }, 3000);
+
+        function checkLoadingComplete() {
+            if (loaded && minTimePassed) {
+                mascotLoading.classList.add('animate__animated', 'animate__bounce');
+                splashAudio.play().catch(e => console.log("Audio play failed:", e));
+                splashScreen.style.opacity = '0';
+
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                    mainContent.style.opacity = '1';
+                    localStorage.setItem('splashShown', 'true'); // Set flag here
+
+                    initDecryptAnimations();
+                    initInteractiveElements();
+                    initNavbarEffects();
+                    initScrollEffects();
+                    createFloatingCode();
+                }, 1000);
+            }
+        }
+
+        function initInteractiveElements() {
+            const techButtons = document.querySelectorAll('.tech-button');
+            techButtons.forEach(button => {
+                button.addEventListener('mousemove', (e) => {
+                    const rect = button.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    button.style.setProperty('--mouse-x', `${x}px`);
+                    button.style.setProperty('--mouse-y', `${y}px`);
+                });
+
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'scale(0.95)';
+                });
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = '';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = '';
+                });
+            });
+
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.boxShadow = `${x - rect.width / 2}px ${y - rect.height / 2}px 30px rgba(2, 169, 247, 0.2)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '';
+                });
+            });
+
+            const socialIcons = document.querySelectorAll('.social-icon');
+            socialIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', () => {
+                    const svg = icon.querySelector('svg');
+                    if (svg) {
+                        svg.style.transform = 'rotate(10deg)';
+                    }
+                });
+                icon.addEventListener('mouseleave', () => {
+                    const svg = icon.querySelector('svg');
+                    if (svg) {
+                        svg.style.transform = '';
+                    }
+                });
+            });
+
+            const mascotGif = document.querySelector('.mascot-gif');
+            if (mascotGif) {
+                window.addEventListener('mousemove', (e) => {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                    mascotGif.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
+                });
+            }
+        }
+
+        function initNavbarEffects() {
+            const nav = document.querySelector('nav');
+            const navLogo = document.querySelector('.nav-logo');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (navLogo) {
+                navLogo.addEventListener('mouseenter', () => {
+                    navLogo.style.transform = 'rotate(-10deg) scale(1.1)';
+                });
+                navLogo.addEventListener('mouseleave', () => {
+                    navLogo.style.transform = '';
+                });
+            }
+
+            let lastScrollPosition = 0;
+            window.addEventListener('scroll', () => {
+                const currentScrollPosition = window.pageYOffset;
+
+                if (currentScrollPosition > lastScrollPosition) {
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    nav.style.transform = 'translateY(0)';
+                }
+
+                nav.style.boxShadow =
+                    currentScrollPosition > 10
+                        ? '0 0 30px rgba(2, 169, 247, 0.3)'
+                        : '0 0 20px rgba(2, 169, 247, 0.1)';
+
+                lastScrollPosition = currentScrollPosition;
+            });
+        }
+
+        function initScrollEffects() {
+            const scrollElements = document.querySelectorAll('.service-card, .social-icon, section');
+
+            const elementInView = (el) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return elementTop <= (window.innerHeight || document.documentElement.clientHeight);
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('animate__animated', 'animate__fadeInUp');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            handleScrollAnimation();
+            window.addEventListener('scroll', handleScrollAnimation);
+        }
+
+        function initDecryptAnimations() {
+            const decryptElements = document.querySelectorAll('.decrypt-text');
+
+            decryptElements.forEach((el, index) => {
+                if (
+                    !el.classList.contains('decrypt-delay-1') &&
+                    !el.classList.contains('decrypt-delay-2') &&
+                    !el.classList.contains('decrypt-delay-3')
+                ) {
+                    el.style.animationDelay = `${index * 0.2}s`;
+                }
+
+                if (el.classList.contains('terminal-type')) {
+                    const text = el.textContent;
+                    el.textContent = '';
+                    el.style.width = '0';
+
+                    setTimeout(() => {
+                        el.textContent = text;
+                        el.style.width = '100%';
+                        el.style.overflow = 'visible';
+                        el.style.whiteSpace = 'normal';
+                    }, index * 200);
+                }
+            });
+        }
+
+        function createFloatingCode() {
+            const codeChars = ['{', '}', '<', '>', '(', ')', ';', '=', '/', '\\', '[', ']'];
+            const colors = ['#89D6FB', '#02A9F7', '#d4f0fc'];
+
+            for (let i = 0; i < 20; i++) {
+                const code = document.createElement('div');
+                code.textContent = codeChars[Math.floor(Math.random() * codeChars.length)];
+                code.style.position = 'fixed';
+                code.style.color = colors[Math.floor(Math.random() * colors.length)];
+                code.style.fontFamily = 'monospace';
+                code.style.fontSize = `${Math.random() * 10 + 10}px`;
+                code.style.opacity = '0.7';
+                code.style.zIndex = '-1';
+                code.style.userSelect = 'none';
+                code.style.pointerEvents = 'none';
+
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight;
+                code.style.left = `${startX}px`;
+                code.style.top = `${startY}px`;
+
+                document.body.appendChild(code);
+                animateCode(code);
+            }
+        }
+
+        function animateCode(element) {
+            const duration = 30000 + Math.random() * 30000;
+
+            const keyframes = [
+                { transform: `translate(0, 0)`, opacity: 0.7 },
+                { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.5 },
+                { transform: `translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 200}px)`, opacity: 0.3 },
+                { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.7 }
+            ];
+
+            const options = {
+                duration: duration,
+                iterations: Infinity,
+                direction: 'alternate',
+                easing: 'ease-in-out'
+            };
+
+            element.animate(keyframes, options);
+
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    element.style.opacity = Math.random() > 0.5 ? '0.9' : '0.3';
+                    setTimeout(() => {
+                        element.style.opacity = '0.7';
+                    }, 200);
+                }
+            }, 1000);
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Core Elements
+        const mainContent = document.getElementById('main-content');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Initialize functions
+        initMobileMenu();
+        initPortfolioFilter();
+        initInteractiveElements();
+        initNavbarEffects();
+        initScrollEffects();
+        initDecryptAnimations();
+        createFloatingCode();
+
+        // ======================
+        // MOBILE MENU
+        // ======================
+        function initMobileMenu() {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.classList.toggle('text-[#02A9F7]');
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('text-[#02A9F7]');
+                });
+            });
+        }
+
+        // ======================
+        // PORTFOLIO FILTER
+        // ======================
+        function initPortfolioFilter() {
+            const filterButtons = document.querySelectorAll('.portfolio-filter');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+                    this.classList.add('active-filter');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter items
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('hide');
+                        } else {
+                            item.classList.add('hide');
+                        }
+                    });
+                });
+            });
+        }
+
+        // ======================
+        // INTERACTIVE ELEMENTS
+        // ======================
+        function initInteractiveElements() {
+            // Tech buttons hover effect
+            const techButtons = document.querySelectorAll('.tech-button');
+            techButtons.forEach(button => {
+                button.addEventListener('mousemove', (e) => {
+                    const rect = button.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    button.style.setProperty('--mouse-x', `${x}px`);
+                    button.style.setProperty('--mouse-y', `${y}px`);
+                });
+
+                // Click effect
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'scale(0.95)';
+                });
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = '';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = '';
+                });
+            });
+
+            // Project cards hover effect
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // Testimonial cards hover effect
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 10px 25px rgba(2, 169, 247, 0.3)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    card.style.boxShadow = '';
+                });
+            });
+        }
+
+        // ======================
+        // NAVBAR EFFECTS
+        // ======================
+        function initNavbarEffects() {
+            const nav = document.querySelector('nav');
+            const navLogo = document.querySelector('.nav-logo');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Logo animation
+            if (navLogo) {
+                navLogo.addEventListener('mouseenter', () => {
+                    navLogo.style.transform = 'rotate(-10deg) scale(1.1)';
+                });
+                navLogo.addEventListener('mouseleave', () => {
+                    navLogo.style.transform = '';
+                });
+            }
+
+            // Navbar scroll effect
+            let lastScrollPosition = 0;
+            window.addEventListener('scroll', () => {
+                const currentScrollPosition = window.pageYOffset;
+                if (currentScrollPosition > lastScrollPosition) {
+                    // Scrolling down
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    nav.style.transform = 'translateY(0)';
+                }
+
+                // Add shadow when scrolled
+                if (currentScrollPosition > 10) {
+                    nav.style.boxShadow = '0 0 30px rgba(2, 169, 247, 0.3)';
+                } else {
+                    nav.style.boxShadow = '0 0 20px rgba(2, 169, 247, 0.1)';
+                }
+                lastScrollPosition = currentScrollPosition;
+            });
+        }
+
+        // ======================
+        // SCROLL EFFECTS
+        // ======================
+        function initScrollEffects() {
+            // Scroll reveal animation
+            const scrollElements = document.querySelectorAll('.project-card, .testimonial-card, section');
+            const elementInView = (el) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight));
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('animate__animated', 'animate__fadeInUp');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 100)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            // Initialize check
+            handleScrollAnimation();
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+        }
+
+        // ======================
+        // DECRYPT ANIMATIONS
+        // ======================
+        function initDecryptAnimations() {
+            // Animate all elements with decrypt-text class
+            const decryptElements = document.querySelectorAll('.decrypt-text');
+            decryptElements.forEach((el, index) => {
+                // If no specific delay class exists, add staggered delay
+                if (!el.classList.contains('decrypt-delay-1') &&
+                    !el.classList.contains('decrypt-delay-2') &&
+                    !el.classList.contains('decrypt-delay-3')) {
+                    el.style.animationDelay = `${index * 0.2}s`;
+                }
+
+                // For terminal-like typing effect
+                if (el.classList.contains('terminal-type')) {
+                    const text = el.textContent;
+                    el.textContent = '';
+                    el.style.width = '0';
+                    setTimeout(() => {
+                        el.textContent = text;
+                        el.style.width = '100%';
+                        el.style.overflow = 'visible';
+                        el.style.whiteSpace = 'normal';
+                    }, index * 200);
+                }
+            });
+        }
+
+        // ======================
+        // FLOATING CODE ELEMENTS
+        // ======================
+        function createFloatingCode() {
+            const codeChars = ['{', '}', '<', '>', '(', ')', ';', '=', '/', '\\', '[', ']'];
+            const colors = ['#89D6FB', '#02A9F7', '#d4f0fc'];
+
+            for (let i = 0; i < 20; i++) {
+                const code = document.createElement('div');
+                code.textContent = codeChars[Math.floor(Math.random() * codeChars.length)];
+                code.style.position = 'fixed';
+                code.style.color = colors[Math.floor(Math.random() * colors.length)];
+                code.style.fontFamily = 'monospace';
+                code.style.fontSize = `${Math.random() * 10 + 10}px`;
+                code.style.opacity = '0.7';
+                code.style.zIndex = '-1';
+                code.style.userSelect = 'none';
+                code.style.pointerEvents = 'none';
+
+                // Random starting position
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight;
+                code.style.left = `${startX}px`;
+                code.style.top = `${startY}px`;
+                document.body.appendChild(code);
+
+                // Animate floating
+                animateCode(code);
+            }
+        }
+
+        function animateCode(element) {
+            const duration = 30000 + Math.random() * 30000;
+            const startX = parseFloat(element.style.left);
+            const startY = parseFloat(element.style.top);
+            const keyframes = [
+                { transform: `translate(0, 0)`, opacity: 0.7 },
+                { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.5 },
+                { transform: `translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 200}px)`, opacity: 0.3 },
+                { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.7 }
+            ];
+            const options = {
+                duration: duration,
+                iterations: Infinity,
+                direction: 'alternate',
+                easing: 'ease-in-out'
+            };
+            element.animate(keyframes, options);
+
+            // Random flicker effect
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    element.style.opacity = Math.random() > 0.5 ? '0.9' : '0.3';
+                    setTimeout(() => {
+                        element.style.opacity = '0.7';
+                    }, 200);
+                }
+            }, 1000);
+        }
+    });
+</script>
 </html>
+
+
